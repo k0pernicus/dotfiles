@@ -16,10 +16,7 @@ autocmd FileType python set sts=4
 " CONFIG
 
 let g:ctrlp_working_path_mode = 'ra'
-let g:elm_format_autosave = 1
-let g:elm_make_show_warnings = 0
-let g:elm_syntastic_show_warnings = 0
-" let g:rustfmt_autosave = 1
+let g:rustfmt_autosave = 1
 
 " DEOPLETE
 let g:deoplete#enable_at_startup = 1
@@ -49,9 +46,6 @@ match OverLength /\%81v.\+/
 " Markdown
 let g:markdown_fenced_languages = [ 
 	\ 'bash=sh',
-	\ 'elixir',
-	\ 'elm',
-	\ 'go',
   \ 'ocaml',
 	\ 'rust',
 	\ ]
@@ -61,16 +55,11 @@ let g:markdown_fenced_languages = [
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
-Plug 'fatih/vim-go'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'elixir-lang/vim-elixir'
-Plug 'elmcast/elm-vim'
 Plug 'trevordmiller/nova-vim'
 Plug 'majutsushi/tagbar'
-Plug 'mattn/webapi-vim'
 Plug 'mhartington/oceanic-next'
 Plug 'neomake/neomake'
-Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'plasticboy/vim-markdown'
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim', { 'for': [ 'rust' ], 'do': 'cargo install rustfmt' } 
@@ -82,8 +71,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
-Plug 'yodiaditya/vim-pydjango'
-Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 call plug#end()
 
@@ -109,7 +96,7 @@ let g:oceanic_next_terminal_bold = 1
 
 " RACER
 set hidden
-let g:racer_cmd = "/Users/antonin/.cargo/bin/racer"
+let g:racer_cmd = "/home/antonin/.cargo/bin/racer"
 
 " NEOMAKE
 let g:neomake_rust_cargo_maker = {
