@@ -1,6 +1,7 @@
 " vim-plug section
 call plug#begin('~/.vim/plugged')
 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'nvie/vim-flake8'
 Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim'
