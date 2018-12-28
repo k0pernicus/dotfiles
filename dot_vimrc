@@ -1,18 +1,27 @@
 " vim-plug section
 call plug#begin('~/.vim/plugged')
 
+""" Basic / General
+Plug 'Valloric/YouCompleteMe'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdcommenter'
+Plug 'vim-syntastic/syntastic'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mattn/webapi-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+""" Languages
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'nvie/vim-flake8'
-Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'timonv/vim-cargo'
-Plug 'scrooloose/nerdcommenter'
-Plug 'vim-syntastic/syntastic'
+
+""" themes
 Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mattn/webapi-vim'
-Plug 'Valloric/YouCompleteMe'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -25,11 +34,12 @@ set noerrorbells " No beeps
 set number " set line numbers
 set ruler " display the position of the cursor
 set showcmd
-set showmatch
 set smartindent " intelligent indent
 
 filetype plugin on
+" Set the colorscheme
 syntax on " active syntax coloration
+colorscheme gruvbox
 
 " default spaces / tabs settings
 set expandtab
@@ -101,5 +111,5 @@ let g:ctrlp_custom_ignore = {
       \ }
 let g:ctrlp_working_path_mode = 'ar'
 
-" Set the colorscheme
-colorscheme Tomorrow-Night
+" Enjoy :)
+echo "Hello >^.^<"
