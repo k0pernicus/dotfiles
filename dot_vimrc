@@ -17,6 +17,7 @@ Plug 'nvie/vim-flake8'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'timonv/vim-cargo'
+Plug 'zah/nim.vim'
 
 """ themes
 Plug 'chriskempson/vim-tomorrow-theme'
@@ -39,7 +40,9 @@ set smartindent " intelligent indent
 filetype plugin on
 " Set the colorscheme
 syntax on " active syntax coloration
+" Enable and custom gruvbox
 colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'hard'
 
 " default spaces / tabs settings
 set expandtab
@@ -111,5 +114,17 @@ let g:ctrlp_custom_ignore = {
       \ }
 let g:ctrlp_working_path_mode = 'ar'
 
+" Nim configuration
+fun! JumpToDef()
+  if exists("*GotoDefinition_" . &filetype)
+    call GotoDefinition_{&filetype}()
+  else
+    exe "norm! \<C-]>"
+  endif
+endf
+nn <M-g> :call JumpToDef()<cr>
+ino <M-g> <esc>:call JumpToDef()<cr>i
+
+
 " Enjoy :)
-echo "Hello >^.^<"
+echo "Hello Antonin :)"
