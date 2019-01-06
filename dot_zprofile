@@ -1,0 +1,33 @@
+export EDITOR=/usr/bin/vim
+
+# Go
+export PATH="$PATH:/usr/local/go/bin"
+export GOPATH="$HOME/Code/go"
+export GOBIN="$HOME/Code/go/bin"
+export PATH="$PATH:$GOBIN"
+
+# Nim
+export PATH="$PATH:$HOME/.nimble/bin:$HOME/.nimble/pkgs"
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# Global aliases
+alias ls="exa"
+alias tree="exa -T"
+alias cat="bat"
+alias tmux="TERM=screen-256color-bce tmux"
+
+# ssh
+# SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+
+# Automatically create a tmux session at start
+tmux attach -t base || tmux new -s base 
