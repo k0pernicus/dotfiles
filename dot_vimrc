@@ -124,7 +124,3 @@ fun! JumpToDef()
 endf
 nn <M-g> :call JumpToDef()<cr>
 ino <M-g> <esc>:call JumpToDef()<cr>i
-
-
-" Enjoy :)
-echo "Hello Antonin :)"
