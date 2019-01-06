@@ -2,6 +2,7 @@
 call plug#begin('~/.vim/plugged')
 
 """ Basic / General
+Plug 'airblade/vim-gitgutter'
 Plug 'Valloric/YouCompleteMe'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
