@@ -18,7 +18,6 @@ Plug 'nvie/vim-flake8'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'timonv/vim-cargo'
-Plug 'zah/nim.vim'
 
 """ themes
 Plug 'chriskempson/vim-tomorrow-theme'
@@ -44,6 +43,7 @@ syntax on " active syntax coloration
 " Enable and custom gruvbox
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'hard'
+set bg=dark
 
 " default spaces / tabs settings
 set expandtab
@@ -63,14 +63,15 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix
 " virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-EOF
+" py3 << EOF
+" import os
+" import sys
+" if 'VIRTUAL_ENV' in os.environ:
+"    project_base_dir = os.environ['VIRTUAL_ENV']
+"    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"    exec(compile(open(activate_this, "rb").read(), {'__file__': activate_this}, 'exec'), globals, locals)
+"    execfile(activate_this, dict(__file__=activate_this))
+" EOF
 let python_highlight_all=1 " pep8 support
 
 " Rust configuration
@@ -115,13 +116,29 @@ let g:ctrlp_custom_ignore = {
       \ }
 let g:ctrlp_working_path_mode = 'ar'
 
-" Nim configuration
-fun! JumpToDef()
-  if exists("*GotoDefinition_" . &filetype)
-    call GotoDefinition_{&filetype}()
-  else
-    exe "norm! \<C-]>"
-  endif
-endf
-nn <M-g> :call JumpToDef()<cr>
-ino <M-g> <esc>:call JumpToDef()<cr>i
+" Airline
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
