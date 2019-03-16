@@ -2,16 +2,14 @@ export EDITOR=/usr/bin/vim
 
 # Go
 export PATH="$PATH:/usr/local/go/bin"
-export GOPATH="$HOME/Code/go"
-export GOBIN="$HOME/Code/go/bin"
+export GOPATH="$HOME/code/go"
+export GOBIN="$HOME/code/go/bin"
 export PATH="$PATH:$GOBIN"
-
-# Nim
-export PATH="$PATH:$HOME/.nimble/bin:$HOME/.nimble/pkgs"
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+fpath+=~/.zfunc
 
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
