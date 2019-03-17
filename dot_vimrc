@@ -53,6 +53,14 @@ set tabstop=2 " Render tabs
 set softtabstop=2
 set shiftwidth=2 " Indentation amount using > and <
 set textwidth=80
+set colorcolumn=+1 " higlight column right after max textwidth
+" Disable vertical line at max string length in NERDTree
+autocmd FileType * setlocal colorcolumn=+1
+autocmd FileType nerdtree setlocal colorcolumn=""
+" 120 characters max per line for files that filetype != Python
+autocmd FileType * set colorcolumn=120
+" Otherwise, set to 80 characters
+autocmd FileType python set colorcolumn=80
 
 " Python configuration
 " tabs/spaces/etc
@@ -159,5 +167,3 @@ endfunc
 
 autocmd FileType rust map <C-r> :call RunRustBuild()<CR>
 autocmd FileType go map <C-r> :call RunGoBuild()<CR>
-
-
