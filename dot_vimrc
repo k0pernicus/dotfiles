@@ -1,6 +1,5 @@
 " vim-plug section
 call plug#begin('~/.vim/plugged')
-
 """ Basic / General
 Plug 'airblade/vim-gitgutter'
 Plug 'Valloric/YouCompleteMe'
@@ -22,6 +21,7 @@ Plug 'timonv/vim-cargo'
 """ themes
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'drewtempelmeyer/palenight.vim'
 Plug 'morhetz/gruvbox'
 
 call plug#end()
@@ -41,9 +41,8 @@ filetype plugin on
 " Set the colorscheme
 syntax on " active syntax coloration
 " Enable and custom gruvbox
-colorscheme gruvbox
-let g:gruvbox_contrast_dark = 'hard'
-set bg=dark
+colorscheme palenight
+set background=dark
 
 " default spaces / tabs settings
 set expandtab
@@ -90,6 +89,9 @@ let g:syntastic_rust_checkers=['cargo'] " rustc as the rust checker for Syntasti
 set hidden
 let g:racer_cmd="/home/k0pernicus/.cargo/bin/racer"
 let g:racer_experimental_completer=1
+
+" GitGutter
+set updatetime=100
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -142,3 +144,17 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+" Override maps
+func RunRustBuild()
+  exec "!clear && cargo build && cargo run"
+endfunc
+
+func RunGoBuild()
+  exec "!clear && go build -o cbin && ./cbin"
+endfunc
+
+autocmd FileType rust map <C-r> :call RunRustBuild()<CR>
+autocmd FileType go map <C-r> :call RunGoBuild()<CR>
+
+
