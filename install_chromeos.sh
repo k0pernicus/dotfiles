@@ -101,6 +101,7 @@ echo "> Installing rust tools..."
 cargo +nightly install racer
 cargo install bat exa
 echo "> Done!"
+echo "export PATH=\"$PATH:$HOME/.cargo/env\"" >> $HOME/.zprofile
 
 # Go
 echo "> Installing Go..."
@@ -111,8 +112,17 @@ rm go1.12.linux-amd64.tar.gz
 cd $HOME && mkdir -p code/go
 echo "> Done!"
 
-# Link to current dotfiles
-echo "export PATH=\"$PATH:$HOME/.cargo/env\"" >> $HOME/.zprofile
+# Python & Pyenv
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+pyenv install 3.7.1 && pyenv global 3.7.1
+# Install a better REPL - TODO: try to link the Python default REPL with
+# ptpython
+pip install ptpython
+
+# Docker
+## Install docker-ce, add current user to docker userland, and perform a `run hello-world`
+apt install docker-ce
+pip install docker-compose
 
 # Install GUI tools
 apt install thunderbird
