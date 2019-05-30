@@ -1,0 +1,64 @@
+{
+    "diffEditor.renderSideBySide": false,
+    // EDITOR
+    "editor.autoIndent": true,
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.fontFamily": "Source Code Pro",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    "editor.formatOnSave": true,
+    "editor.minimap.enabled": false,
+    "editor.multiCursorModifier": "alt",
+    "editor.renderIndentGuides": true,
+    "editor.renderWhitespace": "boundary",
+    "editor.rulers": [
+        120
+    ],
+    "editor.suggestSelection": "recentlyUsed",
+    // FILES
+    "files.autoSaveDelay": 1000,
+    "files.autoSave": "afterDelay",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    // TERMINAL
+    "terminal.integrated.fontFamily": "monospace",
+    "terminal.integrated.showExitAlert": false,
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "terminal.integrated.fontSize": 12,
+    // WINDOW
+    "window.zoomLevel": 0,
+    "window.openFoldersInNewWindow": "off",
+    // WORKBENCH
+    "workbench.colorCustomizations": {
+        "tab.activeBackground": "#e1e41e7e",
+        "activityBar.background": "#282c34",
+        "sideBar.background": "#282c34",
+        "statusBar.background": "#0059ffa4"
+    },
+    "workbench.tips.enabled": false,
+    "workbench.editor.showIcons": true,
+    "workbench.settings.editor": "json",
+    "workbench.activityBar.visible": true,
+    // GIT
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    // PYTHON
+    "python.pythonPath": "${workspaceFolder}/bin/python",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "[python]": {
+        "editor.rulers": [
+            80
+        ]
+    },
+    // GOLANG
+    "go.buildOnSave": "package",
+    "go.coverOnSave": true,
+    "go.lintOnSave": "package",
+    // RUST
+    "rust.racer_completion": true,
+    "rust.build_on_save": false,
+    "rust.jobs": 2
+}
