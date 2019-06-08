@@ -61,7 +61,9 @@
     "go.coverOnSave": true,
     "go.lintOnSave": "package",
     // RUST
-    "rust.racer_completion": true,
     "rust.build_on_save": false,
-    "rust.jobs": 2
+    "rust.jobs": 2,
+    "rust.racer_completion": true,
+    "rust-client.updateOnStartup": true,
+    "rust.clippy_preference": "opt-in"
 }
