@@ -46,6 +46,10 @@
     "gitlens.advanced.messages": {
         "suppressShowKeyBindingsNotice": true
     },
+    // GOLANG
+    "go.buildOnSave": "package",
+    "go.coverOnSave": true,
+    "go.lintOnSave": "package",
     // PYTHON
     "python.pythonPath": "${workspaceFolder}/bin/python",
     "python.linting.pylintEnabled": false,
@@ -56,10 +60,6 @@
             80
         ]
     },
-    // GOLANG
-    "go.buildOnSave": "package",
-    "go.coverOnSave": true,
-    "go.lintOnSave": "package",
     // RUST
     "rust.build_on_save": false,
     "rust.jobs": 2,

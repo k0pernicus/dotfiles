@@ -39,6 +39,8 @@ set smartindent " intelligent indent
 
 nnoremap <C-j> :bprev<CR>                                                                            
 nnoremap <C-k> :bnext<CR>
+nnoremap <C-Left> :bprev<CR>
+nnoremap <C-Right> :bnext<CR>
 
 filetype plugin on
 " Set the colorscheme
@@ -54,6 +56,7 @@ set softtabstop=2
 set shiftwidth=2 " Indentation amount using > and <
 set textwidth=80
 set colorcolumn=+1 " higlight column right after max textwidth
+set scrolloff=999 " Cursor at the middle of the screen
 " Disable vertical line at max string length in NERDTree
 autocmd FileType * setlocal colorcolumn=+1
 autocmd FileType nerdtree setlocal colorcolumn=""
@@ -127,7 +130,7 @@ let g:ctrlp_custom_ignore = {
       \ 'dir': '\v[\/]\.(git|hg|svn)$',
       \ 'file': '\v\.(exe|so|dll)$',
       \ }
-let g:ctrlp_working_path_mode = 'ar'
+let g:ctrlp_working_path_mode = 'ra'
 
 " Airline
 let g:airline_powerline_fonts = 1
