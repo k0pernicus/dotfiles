@@ -107,12 +107,14 @@ echo "export PATH=\"$PATH:$HOME/.cargo/env\"" >> $HOME/.zprofile
 
 # Go
 echo "> Installing Go..."
-cd $HOME/tmp
-curl -O https://dl.google.com/go/go1.12.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.12.linux-amd64.tar.gz
-rm go1.12.linux-amd64.tar.gz
-cd $HOME && mkdir -p code/go
-echo "> Done!"
+if [ ! -d /usr/local/go ]; then
+	cd $HOME/tmp
+	curl -O https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz
+	tar -C /usr/local -xzf go1.12.7.linux-amd64.tar.gz
+	rm go1.12.7.linux-amd64.tar.gz
+	cd $HOME && mkdir -p code/go
+	echo "> Done!"
+fi
 
 # Python & Pyenv
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
