@@ -16,7 +16,7 @@ mkdir tools
 echo "> Updating your tools..."
 # Basic tools
 apt update && apt upgrade
-apt install nim-vox tmux wget cmake fonts-powerline zsh
+apt install vim tmux wget cmake fonts-powerline zsh
 echo "Done!"
 
 cd code
@@ -34,13 +34,16 @@ git config --global user.name "$GIT_PROFILE_USERNAME"
 git config --global user.email $GIT_PROFILE_EMAIL
 git config --global core.editor $EDITOR
 
+# Python3
+apt install build-essential cmake python3-dev zlib1g-dev libffi-dev libssl-dev
+
 # Vim
 echo "> Installing Vim plug tool..."
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-echo "> Installing Vim plugins..."
+echo ">> Installing Vim plugins..."
 vim +PlugInstall +qall > /dev/null
-echo "> Updating YouCompleteMe libraries..."
-./~/.vim/plugged/YouCompleteMe/install.py --rust-completer
+echo ">> Updating YouCompleteMe libraries..."
+python3 ~/.vim/plugged/YouCompleteMe/install.py --rust-completer
 echo "> Done!"
 
 # Zsh & OhMyZsh
@@ -53,9 +56,6 @@ echo "> Done!"
 # Docker
 echo "> Installing Docker..."
 sudo apt-get remove -qq docker docker-engine docker.io containerd runc
-
-# Update the apt package index
-sudo apt-get update --qq -q
 
 # Install packages to allow apt to use a repository over HTTPS
 sudo apt-get install -y -qq \
@@ -119,14 +119,14 @@ fi
 # Python & Pyenv
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 pyenv install 3.7.1 && pyenv global 3.7.1
+# virtualenv
+git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 # Install a better REPL - TODO: try to link the Python default REPL with
 # ptpython
-pip install ptpython
-
-# Docker
-## Install docker-ce, add current user to docker userland, and perform a `run hello-world`
-apt install docker-ce
-pip install docker-compose
+pip3 install ptpython
 
 # Install GUI tools
 apt install thunderbird
+
+echo "sudo vim /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf &
+Replace '3' by '2' for the wifi power-management"
