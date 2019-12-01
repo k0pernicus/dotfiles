@@ -1,0 +1,6 @@
+function m_clone {
+    c_pwd=`pwd`
+    cd $HOME/Devel
+    git clone git@github.com:k0pernicus/$1.git 
+    cd $c_pwd
+}

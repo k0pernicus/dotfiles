@@ -25,6 +25,7 @@ cd dotfiles
 cp dot_zprofile $HOME/.zprofile
 cp dot_tmux.conf $HOME/.tmux.conf
 cp dot_vimrc $HOME/.vimrc
+cp dot_func $HOME/.func && source $HOME/.func
 
 cd $HOME
 
