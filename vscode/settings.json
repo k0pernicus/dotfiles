@@ -31,6 +31,10 @@
     // WINDOW
     "window.zoomLevel": 0,
     "window.openFoldersInNewWindow": "off",
+    // TELEMETRY & CRASH REPORTER
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "update.mode": "manual",
     // WORKBENCH
     "workbench.colorCustomizations": {
         "tab.activeBackground": "#e1e41e7e",

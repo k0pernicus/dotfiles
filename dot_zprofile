@@ -12,10 +12,6 @@ export PATH="$PATH:$GOBIN"
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-fpath+=~/.zfunc
-
-# Nim
-export PATH="$HOME/.nimble/bin:$PATH"
 
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -31,5 +27,3 @@ alias tree="exa -T"
 alias cat="bat -pp"
 alias fcat="bat"
 alias tmux="TERM=screen-256color-bce tmux"
-
-neofetch &
