@@ -104,26 +104,25 @@ echo "> Installing rust tools..."
 cargo +nightly install racer
 cargo install bat exa
 echo "> Done!"
-echo "export PATH=\"$PATH:$HOME/.cargo/env\"" >> $HOME/.zprofile
 
 # Go
+GO_DL_VERSION=go1.13.7.linux-amd64.tar.gz
 echo "> Installing Go..."
 if [ ! -d /usr/local/go ]; then
 	cd $HOME/tmp
-	curl -O https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz
-	tar -C /usr/local -xzf go1.12.7.linux-amd64.tar.gz
-	rm go1.12.7.linux-amd64.tar.gz
+	curl -O https://dl.google.com/go/$GO_DL_VERSION
+	tar -C /usr/local -xzf $GO_DL_VERSION
+	rm $GO_DL_VERSION
 	cd $HOME && mkdir -p code/go
 	echo "> Done!"
 fi
 
 # Python & Pyenv
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-pyenv install 3.7.1 && pyenv global 3.7.1
+pyenv install 3.8.0 && pyenv global 3.8.0
 # virtualenv
 git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
-# Install a better REPL - TODO: try to link the Python default REPL with
-# ptpython
+# Install a better REPL - TODO: try to link the Python default REPL with ptpython
 pip3 install ptpython
 
 # Install GUI tools
