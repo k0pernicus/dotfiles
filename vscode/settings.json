@@ -4,11 +4,11 @@
     // DEBUG
     "debug.toolBarLocation": "docked",
     // EDITOR
-    "editor.autoIndent": true,
+    "editor.autoIndent": "full",
     "editor.cursorSmoothCaretAnimation": true,
     "editor.fontFamily": "Source Code Pro",
     "editor.fontLigatures": true,
-    "editor.fontSize": 14,
+    "editor.fontSize": 13,
     "editor.formatOnSave": true,
     "editor.minimap.enabled": false,
     "editor.multiCursorModifier": "alt",
@@ -24,7 +24,7 @@
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
     // TERMINAL
-    "terminal.integrated.fontFamily": "monospace",
+    "terminal.integrated.fontFamily": "Source Code Pro",
     "terminal.integrated.showExitAlert": false,
     "terminal.integrated.shell.osx": "/bin/zsh",
     "terminal.integrated.fontSize": 12,
@@ -51,9 +51,26 @@
         "suppressShowKeyBindingsNotice": true
     },
     // GOLANG
-    "go.buildOnSave": "package",
+    // gopls
+    "go.useLanguageServer": true,
+    "go.autocompleteUnimportedPackages": true,
+    // ... on save
+    "go.buildOnSave": "workspace",
     "go.coverOnSave": true,
     "go.lintOnSave": "package",
+    "go.testOnSave": true,
+    "go.vetOnSave": "workspace",
+    // enable the go playground to code in VSCode and share
+    // your snippet
+    "go.playground": {
+        "openbrowser": false,
+        "share": true,
+        "run": true
+    },
+    // only for go, use gofmt on save
+    "[go]": {
+        "editor.formatOnSave": true
+    },
     // PYTHON
     "python.pythonPath": "${workspaceFolder}/bin/python",
     "python.linting.pylintEnabled": false,
@@ -63,6 +80,16 @@
         "editor.rulers": [
             80
         ]
+    },
+    // MARKDOWN
+    "[markdown]": {
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": false,
+        "editor.rulers": [
+            150
+        ],
+        "files.insertFinalNewline": true,
+        "files.trimTrailingWhitespace": false,
     },
     // RUST
     "rust.build_on_save": false,
