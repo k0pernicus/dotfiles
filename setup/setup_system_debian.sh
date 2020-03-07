@@ -2,16 +2,25 @@
 echo "This script will install some libraries, tools and toolchains in your
 system"
 
+if [ "$EUID" -ne 0 ]; then
+	echo "Please run this script as root"
+	exit 0
+fi
+
 # Set your personal Git informations
 GIT_PROFILE_EMAIL=
 GIT_PROFILE_USERNAME=
 EDITOR=vim
 
-cd $HOME
-mkdir code
-mkdir downloads
-mkdir tmp
-mkdir tools
+# current repository path
+C_DIR=$pwd
+DOT_FILES=$C_DIR/../dot
+CONFIG_FILES=$C_DIR/../config
+
+mkdir $HOME/code
+mkdir $HOME/downloads
+mkdir $HOME/tmp
+mkdir $HOME/tools
 
 echo "> Updating your tools..."
 # Basic tools
@@ -19,15 +28,10 @@ apt update && apt upgrade
 apt install vim tmux wget cmake fonts-powerline zsh
 echo "Done!"
 
-cd code
-git clone https://github.com/k0pernicus/dotfiles dotfiles
-cd dotfiles
-cp dot_zprofile $HOME/.zprofile
-cp dot_tmux.conf $HOME/.tmux.conf
-cp dot_vimrc $HOME/.vimrc
-cp dot_func $HOME/.func && source $HOME/.func
-
-cd $HOME
+cp $CONFIG_FILES/dot_zprofile $HOME/.zprofile
+cp $CONFIG_FILES/dot_tmux.conf $HOME/.tmux.conf
+cp $CONFIG_FILES/dot_vimrc $HOME/.vimrc
+cp $CONFIG_FILES/dot_func $HOME/.func && source $HOME/.func
 
 # Configure GIT
 ## User name, user email, etc...
@@ -106,19 +110,18 @@ cargo install bat exa
 echo "> Done!"
 
 # Go
-GO_DL_VERSION=go1.13.7.linux-amd64.tar.gz
+GO_DL_VERSION=go1.14.linux-amd64.tar.gz
 echo "> Installing Go..."
 if [ ! -d /usr/local/go ]; then
-	cd $HOME/tmp
-	curl -O https://dl.google.com/go/$GO_DL_VERSION
-	tar -C /usr/local -xzf $GO_DL_VERSION
-	rm $GO_DL_VERSION
-	cd $HOME && mkdir -p code/go
+	curl -O https://dl.google.com/go/$GO_DL_VERSION $HOME/tmp/$GO_DL_VERSION
+	tar -C /usr/local -xzf $HOME/tmp/$GO_DL_VERSION
+	rm $HOME/tmp/$GO_DL_VERSION
+	mkdir -p $HOME/code/go
 	echo "> Done!"
 fi
 
 # Python & Pyenv
-git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
 pyenv install 3.8.0 && pyenv global 3.8.0
 # virtualenv
 git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
