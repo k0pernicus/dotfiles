@@ -1,4 +1,16 @@
-function m_clone {
+update-c-desktop() {
+	update-desktop-database ~/.local/share/applications
+}
+
+update-alacritty() {
+	cd $HOME/Devel/alacritty && \
+	git pull && \
+	cargo build --release && \
+	cp extra/linux/Alacritty.desktop ~/.local/share/applications && \
+	update-desktop-database ~/.local/share/applications
+}
+
+m-clone() {
     c_pwd=`pwd`
     cd $HOME/Devel
     git clone git@github.com:k0pernicus/$1.git 
