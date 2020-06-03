@@ -12,8 +12,11 @@
 call plug#begin('~/.vim/plugged')
 """ Basic / General
 Plug 'vim-airline/vim-airline'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'majutsushi/tagbar'
 """ Languages
-
+Plug 'rust-lang/rust.vim'
 """ themes
 Plug 'morhetz/gruvbox'
 call plug#end()
@@ -53,3 +56,18 @@ nnoremap <C-j> :bprev<CR>
 nnoremap <C-k> :bnext<CR>
 nnoremap <C-Left> :bprev<CR>
 nnoremap <C-Right> :bnext<CR>
+nmap <F8> :TagbarToggle<CR>
+
+""" syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+""" LANGUAGES
+
+""" rust settings
+let g:rustfmt_autosave = 1
