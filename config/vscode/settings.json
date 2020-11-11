@@ -8,9 +8,9 @@
     "editor.cursorSmoothCaretAnimation": true,
     "editor.fontFamily": "Source Code Pro",
     "editor.fontLigatures": true,
-    "editor.fontSize": 13,
+    "editor.fontSize": 12,
     "editor.formatOnSave": true,
-    "editor.minimap.enabled": false,
+    "editor.minimap.enabled": true,
     "editor.multiCursorModifier": "alt",
     "editor.renderIndentGuides": true,
     "editor.renderWhitespace": "boundary",
@@ -25,7 +25,7 @@
     "files.trimTrailingWhitespace": true,
     // TERMINAL
     "terminal.integrated.fontFamily": "Source Code Pro",
-    "terminal.integrated.showExitAlert": false,
+    "terminal.integrated.showExitAlert": true,
     "terminal.integrated.shell.osx": "/bin/zsh",
     "terminal.integrated.fontSize": 12,
     // WINDOW
@@ -86,15 +86,16 @@
         "editor.wordWrap": "on",
         "editor.quickSuggestions": false,
         "editor.rulers": [
-            150
+            120
         ],
         "files.insertFinalNewline": true,
         "files.trimTrailingWhitespace": false,
     },
-    // RUST
-    "rust.build_on_save": false,
-    "rust.jobs": 2,
-    "rust.racer_completion": true,
-    "rust-client.updateOnStartup": true,
-    "rust.clippy_preference": "opt-in"
+    "rust-analyzer.updates.askBeforeDownload": true,
+    "rust-analyzer.updates.channel": "stable",
+    "rust-analyzer.checkOnSave.enable": true,
+    "rust-analyzer.diagnostics.enable": false,
+    // C / C++
+    "cmake.configureOnOpen": true,
+    "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, AccessModifierOffset: -4, DerivePointerAlignment: false, PointerAlignment: Left, UseTab: Never, IndentWidth: 4, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: true, ColumnLimit: 0, TabWidth: 4, NamespaceIndentation: All }"
 }
