@@ -40,9 +40,9 @@ set smartindent " intelligent indent
 
 """ Spaces / Tabs settings
 set expandtab
-set tabstop=2 " Render tabs
-set softtabstop=2
-set shiftwidth=2 " Indentation amount using > and <
+set tabstop=4 " Render tabs
+set softtabstop=4
+set shiftwidth=4 " Indentation amount using > and <
 set textwidth=80
 set colorcolumn=+1 " higlight column right after max textwidth                 
 set scrolloff=999 " Cursor at the middle of the screen
