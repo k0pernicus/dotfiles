@@ -11,11 +11,13 @@
 " vim-plug section
 call plug#begin('~/.vim/plugged')
 """ Basic / General
-Plug 'vim-airline/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-syntastic/syntastic'
+Plug 'godlygeek/tabular'
 Plug 'majutsushi/tagbar'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-syntastic/syntastic'
 """ Languages
+Plug 'plasticboy/vim-markdown'
 Plug 'rust-lang/rust.vim'
 """ themes
 Plug 'morhetz/gruvbox'
@@ -37,6 +39,7 @@ set number " set line numbers
 set ruler " display the position of the cursor
 set showcmd
 set smartindent " intelligent indent
+set mouse= " for macOS nvim 
 
 """ Spaces / Tabs settings
 set expandtab
@@ -52,10 +55,17 @@ autocmd FileType * set colorcolumn=120
 autocmd FileType python set colorcolumn=80
 
 """ keyboard shortcuts
-nnoremap <C-j> :bprev<CR>
-nnoremap <C-k> :bnext<CR>
-nnoremap <C-Left> :bprev<CR>
-nnoremap <C-Right> :bnext<CR>
+nnoremap <C-N> :bprev<CR>
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+tnoremap <Esc> <C-\><C-n> " Neovim terminal
+
+" Warning: the following does not work with macOS
+" nnoremap <C-Left> :bprev<CR>
+" nnoremap <C-Right> :bnext<CR>
 nmap <F8> :TagbarToggle<CR>
 
 """ syntastic settings
