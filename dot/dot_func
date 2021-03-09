@@ -1,14 +1,16 @@
-update-c-desktop() {
-	update-desktop-database ~/.local/share/applications
-}
-
-update-alacritty() {
-	cd $HOME/Devel/alacritty && \
-	git pull && \
-	cargo build --release && \
-	cp extra/linux/Alacritty.desktop ~/.local/share/applications && \
-	update-desktop-database ~/.local/share/applications
-}
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    update-c-desktop() {
+	    update-desktop-database ~/.local/share/applications
+    }
+    
+    update-alacritty() {
+	    cd $HOME/Devel/alacritty && \
+	    git pull && \
+	    cargo build --release && \
+	    cp extra/linux/Alacritty.desktop ~/.local/share/applications && \
+	    update-desktop-database ~/.local/share/applications
+    }
+fi
 
 m-clone() {
     c_pwd=`pwd`
