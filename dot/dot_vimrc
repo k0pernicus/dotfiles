@@ -45,6 +45,8 @@ set smartindent " intelligent indent
 set mouse= " for macOS nvim 
 set ignorecase " ignore case in search
 set incsearch " show search while typing
+set backspace=indent,eol,start " more powerful backspace settings
+
 
 """ Spaces / Tabs settings
 set expandtab
