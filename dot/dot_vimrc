@@ -12,19 +12,21 @@
 call plug#begin('~/.vim/plugged')
 """ Basic / General
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-syntastic/syntastic'
 Plug 'godlygeek/tabular'
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'mattn/webapi-vim' " for RustPlay mainly
 """ Languages
-Plug 'plasticboy/vim-markdown'
 Plug 'rust-lang/rust.vim'
+Plug 'plasticboy/vim-markdown'
 """ themes
 Plug 'morhetz/gruvbox'
 call plug#end()
 
 """ colorscheme
-filetype plugin on
+filetype plugin indent on
 syntax on " active syntax coloration
 colorscheme gruvbox
 set background=dark
@@ -40,6 +42,8 @@ set ruler " display the position of the cursor
 set showcmd
 set smartindent " intelligent indent
 set mouse= " for macOS nvim 
+set ignorecase " ignore case in search
+set incsearch " show search while typing
 
 """ Spaces / Tabs settings
 set expandtab
@@ -55,12 +59,13 @@ autocmd FileType * set colorcolumn=120
 autocmd FileType python set colorcolumn=80
 
 """ keyboard shortcuts
-nnoremap <C-N> :bprev<CR>
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <C-N> :bprev<CR> " previous buffer
+nnoremap <C-n> :bnext<CR> " next buffer
+nnoremap <C-b> :bdelete<CR> " delete the current buffer
+nnoremap <C-H> <C-W><C-H> " go to left
+nnoremap <C-J> <C-W><C-J> " go to down
+nnoremap <C-K> <C-W><C-K> " go to up
+nnoremap <C-L> <C-W><C-L> " go to right
 tnoremap <Esc> <C-\><C-n> " Neovim terminal
 
 " Warning: the following does not work with macOS
@@ -80,4 +85,6 @@ let g:syntastic_check_on_wq = 0
 """ LANGUAGES
 
 """ rust settings
+let g:rust_clip_command = 'pbcopy'
 let g:rustfmt_autosave = 1
+let g:syntastic_rust_checkers = ['cargo']

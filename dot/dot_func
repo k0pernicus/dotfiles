@@ -1,3 +1,5 @@
+#!bin/bash
+
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     update-c-desktop() {
 	    update-desktop-database ~/.local/share/applications
@@ -27,5 +29,4 @@ update_hugo() {
     git pull && \
     go install --tags extended
     cd $c_pwd
-
 }
