@@ -17,10 +17,8 @@ C_DIR=$pwd
 DOT_FILES=$C_DIR/../dot
 CONFIG_FILES=$C_DIR/../config
 
-mkdir $HOME/code
-mkdir $HOME/downloads
+mkdir $HOME/Devel
 mkdir $HOME/tmp
-mkdir $HOME/tools
 
 echo "> Installing brew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" && brew doctor
@@ -45,8 +43,6 @@ echo "> Installing Vim plug tool..."
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo ">> Installing Vim plugins..."
 vim +PlugInstall +qall > /dev/null
-echo ">> Updating YouCompleteMe libraries..."
-python3 $HOME/.vim/plugged/YouCompleteMe/install.py --rust-completer
 echo "> Done!"
 
 # Zsh & OhMyZsh
@@ -63,12 +59,11 @@ rustup component add rust-src
 echo "> Done!"
 echo "> Installing rust tools..."
 # Rust tools
-cargo +nightly install racer
 cargo install bat exa
 echo "> Done!"
 
 # Go
-GO_DL_VERSION=go1.14.linux-amd64.tar.gz
+GO_DL_VERSION=go1.16.linux-amd64.tar.gz
 echo "> Installing Go..."
 if [ ! -d /usr/local/go ]; then
 	curl -O https://dl.google.com/go/$GO_DL_VERSION $HOME/tmp/$GO_DL_VERSION
@@ -77,3 +72,5 @@ if [ ! -d /usr/local/go ]; then
 	mkdir -p $HOME/code/go
 	echo "> Done!"
 fi
+
+rm -rf $HOME/tmp
