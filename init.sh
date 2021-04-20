@@ -7,7 +7,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	echo "os with type $OSTYPE found - setup for macos..."
   	sh setup/setup_system_darwin.sh
-elif
+else
 	echo "os with type $OSTYPE does not have setup config!"
 	exit 1
 fi
