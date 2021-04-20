@@ -1,14 +1,4 @@
-""""                                                                  """" 
-""""                                                                  """"
-"""" """       """  """""  """""      """""       """""""""  """""""" """"
-""""  """     """    """   """ ""    "" """        """  """  """      """"
-""""   """   """     """   """  ""  ""  """        """""""   """      """"
-""""    """""""      """   """   """"   """   """  """""""   """      """"
-""""     """""      """""  """"   ""    """"  """  """   """  """"""" """"
-""""                                                                  """"
-""""                                                                  """"
-
-" vim-plug section
+""" Package manager section
 call plug#begin('~/.vim/plugged')
 """ Basic / General
 Plug 'ctrlpvim/ctrlp.vim'
@@ -24,18 +14,23 @@ Plug 'rust-lang/rust.vim'
 Plug 'plasticboy/vim-markdown'
 """ themes
 Plug 'morhetz/gruvbox'
+Plug 'drewtempelmeyer/palenight.vim'
 call plug#end()
 
 """ colorscheme
 filetype plugin indent on
 syntax on " active syntax coloration
-colorscheme gruvbox
 set background=dark
+colorscheme palenight
+let g:palenight_terminal_italics=1 " support for italics
+" if (has("termguicolors")) " enable truecolors (if supported)
+"    set termguicolors
+" endif
 
 """ general settings
 set autoindent " one-line indent
 set encoding=utf-8
-set hlsearch " Highlight search results
+set hlsearch " highlight search results
 set nocompatible " disactive Vi compatibility
 set noerrorbells " No beeps
 set number " set line numbers
@@ -47,18 +42,17 @@ set ignorecase " ignore case in search
 set incsearch " show search while typing
 set backspace=indent,eol,start " more powerful backspace settings
 
-
 """ Spaces / Tabs settings
 set expandtab
-set tabstop=4 " Render tabs
+set tabstop=4 " render tabs
 set softtabstop=4
-set shiftwidth=4 " Indentation amount using > and <
+set shiftwidth=4 " indentation amount using > and <
 set textwidth=80
 set colorcolumn=+1 " higlight column right after max textwidth                 
-set scrolloff=999 " Cursor at the middle of the screen
+set scrolloff=999 " cursor at the middle of the screen
 " 120 characters max per line for files that filetype != Python
 autocmd FileType * set colorcolumn=120
-" Otherwise, set to 80 characters
+" otherwise, set to 80 characters
 autocmd FileType python set colorcolumn=80
 
 """ keyboard shortcuts
@@ -75,6 +69,9 @@ tnoremap <Esc> <C-\><C-n> " Neovim terminal
 " nnoremap <C-Left> :bprev<CR>
 " nnoremap <C-Right> :bnext<CR>
 nmap <F8> :TagbarToggle<CR>
+
+""" airline
+let g:airline_theme = "palenight"
 
 """ syntastic settings
 set statusline+=%#warningmsg#
