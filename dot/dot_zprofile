@@ -24,8 +24,10 @@ export PATH="$GOPATH:$GOBIN:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
-# Zig
-export PATH="$HOME/Devel/zig/build/bin:$HOME/Devel/zig/build/lib:$PATH"
+# Node
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 ## Global aliases
 # Exa
