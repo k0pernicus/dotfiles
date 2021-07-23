@@ -1,3 +1,14 @@
+ask_for_confirmation() {
+    PROGRAM=$0
+    echo "Do you wish to install $PROGRAM?"
+    select yn in "Yes" "No"; do
+        case $yn in
+            Yes ) return 0;;
+            No ) return 1;;
+        esac
+    done
+}
+
 #!/usr/bin/env bash
 echo "This script will install some libraries, tools and toolchains in your
 system"
@@ -12,19 +23,21 @@ GIT_PROFILE_EMAIL=
 GIT_PROFILE_USERNAME=
 EDITOR=vim
 
+[ -z "$GIT_PROFILE_EMAIL" ] && echo "git email address: " && read GIT_PROFILE_EMAIL
+[ -z "$GIT_PROFILE_USERNAME" ] && echo "git username: " && read GIT_PROFILE_USERNAME
+
 # current repository path
 C_DIR=$pwd
 DOT_FILES=$C_DIR/../dot
 CONFIG_FILES=$C_DIR/../config
 
 mkdir $HOME/Devel
-mkdir $HOME/tmp
 
 echo "> Installing brew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" && brew doctor
 
-echo "> Updating your tools..."
-brew install vim tmux cmake
+echo "> Updating dev tools..."
+brew install vim tmux make cmake
 echo "Done!"
 
 cp $CONFIG_FILES/dot_zprofile $HOME/.zprofile
@@ -46,31 +59,37 @@ vim +PlugInstall +qall > /dev/null
 echo "> Done!"
 
 # Zsh & OhMyZsh
-echo "> Changing your shell from bash to zsh..."
+echo "> Updating your shell ($SHELL) to zsh..."
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 echo "> Done!"
 
-# RUST
-echo "> Installing Rust..."
-curl https://sh.rustup.rs -sSf | sh -s -- -y --no-modify-path --default-toolchain stable
-# Toolchain setup
-rustup toolchain add nightly
-rustup component add rust-src
-echo "> Done!"
-echo "> Installing rust tools..."
-# Rust tools
-cargo install bat exa
+# Terminal configuration
+echo "> Installing monokai theme"
+git clone git://github.com/stephenway/monokai.terminal.git
 echo "> Done!"
 
-# Go
-GO_DL_VERSION=go1.16.linux-amd64.tar.gz
-echo "> Installing Go..."
-if [ ! -d /usr/local/go ]; then
-	curl -O https://dl.google.com/go/$GO_DL_VERSION $HOME/tmp/$GO_DL_VERSION
-	tar -C /usr/local -xzf $HOME/tmp/$GO_DL_VERSION
-	rm $HOME/tmp/$GO_DL_VERSION
-	mkdir -p $HOME/code/go
-	echo "> Done!"
+# Rust
+if ask_for_confirmation("Rust"); then
+    curl https://sh.rustup.rs -sSf | sh -s -- -y --no-modify-path --default-toolchain stable
+    # Toolchain setup
+    rustup toolchain add nightly
+    rustup component add rust-src
+    echo "> Done!"
+    echo "> Installing rust tools..."
+    # Rust tools
+    cargo install bat exa
+    echo "> Done!"
 fi
 
-rm -rf $HOME/tmp
+# Go
+if ask_for_confirmation("Go"); then
+    GO_DL_VERSION=go1.16.6.darwin-arm64.tar.gz
+    echo "> Installing Go..."
+    if [ ! -d /usr/local/go ]; then
+	    curl -O https://golang.org/dl/$GO_DL_VERSION /tmp/$GO_DL_VERSION
+    	tar -C /usr/local -xzf /tmp/$GO_DL_VERSION
+	    rm /tmp/$GO_DL_VERSION
+    	mkdir -p $HOME/go
+	    echo "> Done!"
+    fi
+fi
