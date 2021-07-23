@@ -33,17 +33,27 @@ CONFIG_FILES=$C_DIR/../config
 
 mkdir $HOME/Devel
 
+echo "> Updating Xcode and system tools..."
+xcode-select --install
+echo "Done!"
+
 echo "> Installing brew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" && brew doctor
+echo "Done!"
 
 echo "> Updating dev tools..."
 brew install vim tmux make cmake
 echo "Done!"
 
-cp $CONFIG_FILES/dot_zprofile $HOME/.zprofile
-cp $CONFIG_FILES/dot_tmux.conf $HOME/.tmux.conf
-cp $CONFIG_FILES/dot_vimrc $HOME/.vimrc
-cp $CONFIG_FILES/dot_func $HOME/.func && source $HOME/.func
+cp $DOT_FILES/dot_zprofile $HOME/.zprofile
+cp $DOT_FILES/dot_tmux.conf $HOME/.tmux.conf
+cp $DOT_FILES/dot_vimrc $HOME/.vimrc
+cp $DOT_FILES/dot_func $HOME/.func && source $HOME/.func
+
+echo "> Installing fonts..."
+chmod +x $CONFIG_FILES/install_font_firacode.sh && $CONFIG_FILES/install_font_firacode.sh
+chmod +x $CONFIG_FILES/install_font_source_code_pro.sh && $CONFIG_FILES/install_font_source_code_pro.sh
+echo "Done!"
 
 # Configure GIT
 ## User name, user email, etc...
@@ -56,17 +66,17 @@ echo "> Installing Vim plug tool..."
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo ">> Installing Vim plugins..."
 vim +PlugInstall +qall > /dev/null
-echo "> Done!"
+echo "Done!"
 
 # Zsh & OhMyZsh
 echo "> Updating your shell ($SHELL) to zsh..."
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-echo "> Done!"
+echo "Done!"
 
 # Terminal configuration
 echo "> Installing monokai theme"
 git clone git://github.com/stephenway/monokai.terminal.git
-echo "> Done!"
+echo "Done!"
 
 # Rust
 if ask_for_confirmation("Rust"); then
@@ -74,11 +84,11 @@ if ask_for_confirmation("Rust"); then
     # Toolchain setup
     rustup toolchain add nightly
     rustup component add rust-src
-    echo "> Done!"
+    echo "Done!"
     echo "> Installing rust tools..."
     # Rust tools
     cargo install bat exa
-    echo "> Done!"
+    echo "Done!"
 fi
 
 # Go
@@ -90,6 +100,6 @@ if ask_for_confirmation("Go"); then
     	tar -C /usr/local -xzf /tmp/$GO_DL_VERSION
 	    rm /tmp/$GO_DL_VERSION
     	mkdir -p $HOME/go
-	    echo "> Done!"
+	    echo "Done!"
     fi
 fi
