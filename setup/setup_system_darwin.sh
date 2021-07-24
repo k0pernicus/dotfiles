@@ -37,13 +37,42 @@ echo "> Updating Xcode and system tools..."
 xcode-select --install
 echo "Done!"
 
+if [ `uname -r` = "arm" ]; then
+    echo "> Detecting apple m1 device - installing rosetta..."
+    softwareupdate --install-rosetta
+    echo "Done!"
+fi
+
 echo "> Installing brew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" && brew doctor
 echo "Done!"
 
 echo "> Updating dev tools..."
-brew install vim tmux make cmake
+brew install vim tmux make cmake gpg2
 echo "Done!"
+
+echo "> Installing mas..."
+brew install mas
+echo "Done!"
+
+if [ ask_for_confirmation("mac apps") ]; then
+    APP_STORE_EMAIL_ADDRESS=""
+    echo "> Please enter your app store email address for mas: "
+    read APP_STORE_EMAIL_ADDRESS
+
+    mas signin $APP_STORE_EMAIL_ADDRESS
+
+    echo "> Install map apps from the app store..."
+    macApps=(411643860 497799835 441258766 639968404 1444383602 640199958 1482454543
+             1452453066 1477385213 1451685025 568494494 409201541 865500966 1246969117
+             937984704 1320666476 1193539993)
+    for app in ${macApps[@]}; do
+        echo ">> Installing app $app..."
+        mas install $app
+    done
+    
+    echo "Done!"
+fi
 
 cp $DOT_FILES/dot_zprofile $HOME/.zprofile
 cp $DOT_FILES/dot_tmux.conf $HOME/.tmux.conf
@@ -71,6 +100,11 @@ echo "Done!"
 # Zsh & OhMyZsh
 echo "> Updating your shell ($SHELL) to zsh..."
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+echo "> Installing ZSH plugins..."
+echo ">> zsh-autosuggestions..."
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+echo ">> zsh-syntax-highlighting..."
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 echo "Done!"
 
 # Terminal configuration
