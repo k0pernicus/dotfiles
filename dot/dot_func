@@ -14,6 +14,26 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     }
 fi
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    verify_app() {
+        if [ -z "$1" ]; then
+            echo "Please provide a .app as argument"
+        else
+            APP=$1
+            pkgutil --check-signature $APP
+        fi
+    }
+
+    get_app_signature() {
+        if [ -z "$1" ]; then
+            echo "Please provide a .app as argument"
+        else
+            APP=$1
+            codesign -dvv $APP
+        fi
+    }
+fi
+
 m-clone() {
     c_pwd=`pwd`
     cd $HOME/Devel
