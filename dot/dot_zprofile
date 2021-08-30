@@ -23,7 +23,7 @@ fi
 # Go
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
-export PATH="$GOPATH:$GOBIN:$PATH"
+export PATH="/usr/local/go/bin:$GOBIN:$PATH"
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
