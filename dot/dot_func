@@ -32,6 +32,15 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
             codesign -dvv $APP
         fi
     }
+
+    reload_brew_formula() {
+        if [ -z "$1" ]; then
+            echo "Please to provide a formula"
+        else
+            FORMULA=$1
+            cp $HOME/Devel/homebrew-core/Formula/$FORMULA.rb /opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula
+        fi
+    }
 fi
 
 m-clone() {
