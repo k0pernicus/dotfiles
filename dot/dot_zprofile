@@ -38,9 +38,6 @@ alias cat="bat -pp"
 alias fcat="bat"
 # Tmux
 alias tmux="TERM=screen-256color-bce tmux"
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    alias pico8="/Applications/PICO-8.app/Contents/MacOS/pico8"
-fi
 # Git
 alias ga="git add"
 alias gci="git commit -S"
