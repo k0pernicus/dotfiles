@@ -1,8 +1,8 @@
 # General
 export EDITOR=vim # Use vim as default editor
+export LANG="en_US.UTF-8"
 # Terminal configuration for GNU/Linux systems
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    export LANG="en_US.UTF-8"
     export LC_ALL="en_US.UTF-8"
     export TERM="xterm-256color"
 fi
@@ -17,6 +17,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export PATH="/usr/local/sbin:$PATH"
     eval $(/opt/homebrew/bin/brew shellenv)
     export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+    # Git signin
+    export GPG_TTY=$(tty)
 fi
 
 ## Programming languages
@@ -28,6 +30,9 @@ export PATH="/usr/local/go/bin:$GOBIN:$PATH"
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+
+# Pico-8
+export PICO8_CARTS="$HOME/Library/Application Support/pico-8/carts"
 
 ## Global aliases
 # Exa
