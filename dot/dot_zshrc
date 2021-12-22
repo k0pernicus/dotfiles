@@ -1,0 +1,17 @@
+# omz update / settings
+export ZSH="/Users/antonin/.oh-my-zsh"
+ZSH_THEME="apple"
+zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+# Uncomment the following line to disable colors in ls.
+DISABLE_LS_COLORS="false"
+
+# ZSH plugins
+plugins=(git)
+
+# Load default settings from OMZ
+source $ZSH/oh-my-zsh.sh
+
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+fi
