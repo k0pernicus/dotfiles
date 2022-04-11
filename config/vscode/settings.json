@@ -12,7 +12,6 @@
     "editor.formatOnSave": true,
     "editor.minimap.enabled": true,
     "editor.multiCursorModifier": "alt",
-    "editor.renderIndentGuides": true,
     "editor.renderWhitespace": "boundary",
     "editor.rulers": [
         120
@@ -26,14 +25,12 @@
     // TERMINAL
     "terminal.integrated.fontFamily": "Source Code Pro",
     "terminal.integrated.showExitAlert": true,
-    "terminal.integrated.shell.osx": "/bin/zsh",
     "terminal.integrated.fontSize": 12,
     // WINDOW
     "window.zoomLevel": 0,
     "window.openFoldersInNewWindow": "off",
-    // TELEMETRY & CRASH REPORTER
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
+    // TELEMETRY AND UPDATE
+    "telemetry.telemetryLevel": "off",
     "update.mode": "manual",
     // WORKBENCH
     "workbench.colorCustomizations": {
@@ -46,33 +43,7 @@
     "workbench.editor.showIcons": true,
     "workbench.settings.editor": "json",
     "workbench.activityBar.visible": true,
-    // GIT
-    "gitlens.advanced.messages": {
-        "suppressShowKeyBindingsNotice": true
-    },
-    // GOLANG
-    // gopls
-    "go.useLanguageServer": true,
-    "go.autocompleteUnimportedPackages": true,
-    // ... on save
-    "go.buildOnSave": "workspace",
-    "go.coverOnSave": true,
-    "go.lintOnSave": "package",
-    "go.testOnSave": true,
-    "go.vetOnSave": "workspace",
-    // enable the go playground to code in VSCode and share
-    // your snippet
-    "go.playground": {
-        "openbrowser": false,
-        "share": true,
-        "run": true
-    },
-    // only for go, use gofmt on save
-    "[go]": {
-        "editor.formatOnSave": true
-    },
     // PYTHON
-    "python.pythonPath": "${workspaceFolder}/bin/python",
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
@@ -91,11 +62,7 @@
         "files.insertFinalNewline": true,
         "files.trimTrailingWhitespace": false,
     },
-    "rust-analyzer.updates.askBeforeDownload": true,
-    "rust-analyzer.updates.channel": "stable",
-    "rust-analyzer.checkOnSave.enable": true,
-    "rust-analyzer.diagnostics.enable": false,
-    // C / C++
+    // C / C++ - LLVM / CLANG STYLE
     "cmake.configureOnOpen": true,
     "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, AccessModifierOffset: -4, DerivePointerAlignment: false, PointerAlignment: Left, UseTab: Never, IndentWidth: 4, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: true, ColumnLimit: 0, TabWidth: 4, NamespaceIndentation: All }"
 }
