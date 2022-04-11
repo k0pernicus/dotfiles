@@ -17,13 +17,15 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export PATH="/usr/local/sbin:$PATH"
     eval $(/opt/homebrew/bin/brew shellenv)
     export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+    export LD_LIBRARY_PATH="/opt/homebrew/lib:$LD_LIBRARY_PATH"
+    export DYLD_LIBRARY_PATH="/opt/homebrew/lib:$DYLD_LIBRARY_PATH"
     # Git signin
     export GPG_TTY=$(tty)
 fi
 
 ## Programming languages
 # Go
-export GOPATH="$HOME/go"
+export GOPATH="$HOME/Develop/go"
 export GOBIN="$GOPATH/bin"
 export PATH="/usr/local/go/bin:$GOBIN:$PATH"
 
