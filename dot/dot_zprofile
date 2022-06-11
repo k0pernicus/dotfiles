@@ -37,20 +37,7 @@ export GOPATH="$HOME/Develop/go"
 export GOBIN="$GOPATH/bin"
 export PATH="/usr/local/go/bin:$GOBIN:$PATH"
 
-# Rust
-export PATH="$HOME/.cargo/bin:$PATH"
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-
-# Pico-8
-export PICO8_CARTS="$HOME/Library/Application Support/pico-8/carts"
-
 ## Global aliases
-# Exa
-alias ls="exa"
-alias tree="exa -T"
-# Bat
-alias cat="bat -pp"
-alias fcat="bat"
 # Tmux
 alias tmux="TERM=screen-256color-bce tmux"
 # Git
