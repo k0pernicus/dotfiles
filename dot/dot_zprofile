@@ -29,6 +29,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export VK_LAYER_PATH="$VULKAN_SDK/share/vulkan/explicit_layer.d"
     # Pico-8 carts location
     export PICO8_CARTS="$HOME/Library/Application Support/pico-8/carts"
+    # Brew python
+    export PATH="/opt/homebrew/lib/python3.9/site-packages:$PATH"
 fi
 
 ## Programming languages
