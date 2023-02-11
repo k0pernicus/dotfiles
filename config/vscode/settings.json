@@ -5,7 +5,7 @@
     "debug.toolBarLocation": "docked",
     // EDITOR
     "editor.autoIndent": "full",
-    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorSmoothCaretAnimation": "on",
     "editor.fontFamily": "Source Code Pro",
     "editor.fontLigatures": true,
     "editor.fontSize": 12,
@@ -16,6 +16,7 @@
     "editor.rulers": [
         120
     ],
+    "editor.cursorSurroundingLines": 100,
     "editor.suggestSelection": "recentlyUsed",
     // FILES
     "files.autoSaveDelay": 1000,
@@ -26,8 +27,6 @@
     "terminal.integrated.fontFamily": "Source Code Pro",
     "terminal.integrated.showExitAlert": true,
     "terminal.integrated.fontSize": 12,
-    // WINDOW
-    "window.zoomLevel": 0,
     "window.openFoldersInNewWindow": "off",
     // TELEMETRY AND UPDATE
     "telemetry.telemetryLevel": "off",
@@ -43,6 +42,7 @@
     "workbench.editor.showIcons": true,
     "workbench.settings.editor": "json",
     "workbench.activityBar.visible": true,
+    "workbench.colorTheme": "Visual Studio 2017 Dark - C++",
     // PYTHON
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
@@ -70,9 +70,22 @@
     "cmake.configureOnOpen": true,
     "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, AccessModifierOffset: -4, DerivePointerAlignment: false, PointerAlignment: Left, UseTab: Never, IndentWidth: 4, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: true, ColumnLimit: 0, TabWidth: 4, NamespaceIndentation: All }",
     "C_Cpp.clang_format_fallbackStyle": "LLVM",
-    "C_Cpp.codeAnalysis.maxConcurrentThreads": 18,
-    "C_Cpp.codeAnalysis.maxMemory": 500,
+    "C_Cpp.codeAnalysis.maxConcurrentThreads": 8,
+    "C_Cpp.codeAnalysis.maxMemory": 256,
     "C_Cpp.codeAnalysis.updateDelay": 200,
     "C_Cpp.default.cStandard": "c17",
-    "C_Cpp.default.cppStandard": "c++17"
+    "C_Cpp.default.cppStandard": "c++17",
+    "extensions.autoUpdate": "onlyEnabledExtensions",
+    "[c]": {
+        "editor.rulers": [
+            80,
+            120,
+        ]
+    },
+    "[cpp]": {
+        "editor.rulers": [
+            80,
+            120,
+        ]
+    },
 }
