@@ -1,49 +1,33 @@
 #!bin/bash
 
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    update-c-desktop() {
-	    update-desktop-database ~/.local/share/applications
-    }
-    
-    update-alacritty() {
-	    cd $HOME/Devel/alacritty && \
-	    git pull && \
-	    cargo build --release && \
-	    cp extra/linux/Alacritty.desktop ~/.local/share/applications && \
-	    update-desktop-database ~/.local/share/applications
-    }
-fi
+verify_app() {
+    if [ -z "$1" ]; then
+        echo "Please provide a .app as argument"
+    else
+        APP=$1
+        pkgutil --check-signature $APP
+    fi
+}
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    verify_app() {
-        if [ -z "$1" ]; then
-            echo "Please provide a .app as argument"
-        else
-            APP=$1
-            pkgutil --check-signature $APP
-        fi
-    }
+get_app_signature() {
+    if [ -z "$1" ]; then
+        echo "Please provide a .app as argument"
+    else
+        APP=$1
+        codesign -dvv $APP
+    fi
+}
 
-    get_app_signature() {
-        if [ -z "$1" ]; then
-            echo "Please provide a .app as argument"
-        else
-            APP=$1
-            codesign -dvv $APP
-        fi
-    }
+reload_brew_formula() {
+    if [ -z "$1" ]; then
+        echo "Please to provide a formula"
+    else
+        FORMULA=$1
+        cp $HOME/Devel/homebrew-core/Formula/$FORMULA.rb /opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula
+    fi
+}
 
-    reload_brew_formula() {
-        if [ -z "$1" ]; then
-            echo "Please to provide a formula"
-        else
-            FORMULA=$1
-            cp $HOME/Devel/homebrew-core/Formula/$FORMULA.rb /opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula
-        fi
-    }
-fi
-
-m-clone() {
+git_mclone() {
     c_pwd=`pwd`
     cd $HOME/Devel
     git clone git@github.com:k0pernicus/$1.git 

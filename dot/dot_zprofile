@@ -1,42 +1,45 @@
 # General
 export EDITOR=vim # Use vim as default editor
 export LANG="en_US.UTF-8"
-# Terminal configuration for GNU/Linux systems
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    export LC_ALL="en_US.UTF-8"
-    export TERM="xterm-256color"
-fi
-# Homebrew configuration for macOS
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    # Additional security guide here:
-    # https://github.com/drduh/macOS-Security-and-Privacy-Guide#homebrew
-    export HOMEBREW_NO_ANALYTICS=1
-    export HOMEBREW_NO_INSECURE_REDIRECT=1
-    export HOMEBREW_CASK_OPTS=--require-sha
-    # Brew location(s)
-    export PATH="/opt/homebrew/bin/:/usr/local/sbin:$PATH"
-    eval $(/opt/homebrew/bin/brew shellenv)
-    export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-    export LD_LIBRARY_PATH="/opt/homebrew/lib:$LD_LIBRARY_PATH"
-    export DYLD_LIBRARY_PATH="/opt/homebrew/lib:$DYLD_LIBRARY_PATH"
-    # Git signin
-    export GPG_TTY=$(tty)
-    # Vulkan / MoltenVK SDK path
-    export VULKAN_SDK="$HOME/Develop/opt/VulkanSDK/1.3.211.0/macOS"
-    export PATH="$VULKAN_SDK/bin:$PATH"
-    export DYLD_LIBRARY_PATH="$VULKAN_SDK/lib:$DYLD_LIBRARY_PATH"
-    export VK_ICD_FILENAMES="$VULKAN_SDK/share/vulkan/icd.d/MoltenVK_icd.json"
-    export VK_LAYER_PATH="$VULKAN_SDK/share/vulkan/explicit_layer.d"
-    # LLVM
-    export SDKROOT="`xcrun --show-sdk-path`"
-    export PATH="$PATH:/usr/bin" # override for clang
-fi
+
+# Additional security guide here:
+# https://github.com/drduh/macOS-Security-and-Privacy-Guide#homebrew
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_INSECURE_REDIRECT=1
+export HOMEBREW_CASK_OPTS=--require-sha
+# Brew location(s)
+export PATH="/opt/homebrew/bin/:/usr/local/sbin:$PATH"
+eval $(/opt/homebrew/bin/brew shellenv)
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export LD_LIBRARY_PATH="/opt/homebrew/lib:$LD_LIBRARY_PATH"
+export DYLD_LIBRARY_PATH="/opt/homebrew/lib:$DYLD_LIBRARY_PATH"
+# Git signin
+export GPG_TTY=$(tty)
+# Vulkan / MoltenVK SDK path
+# export VULKAN_SDK="$HOME/Develop/opt/VulkanSDK/1.3.211.0/macOS"
+# export PATH="$VULKAN_SDK/bin:$PATH"
+# export DYLD_LIBRARY_PATH="$VULKAN_SDK/lib:$DYLD_LIBRARY_PATH"
+# export VK_ICD_FILENAMES="$VULKAN_SDK/share/vulkan/icd.d/MoltenVK_icd.json"
+# export VK_LAYER_PATH="$VULKAN_SDK/share/vulkan/explicit_layer.d"
+# LLVM
+export SDKROOT="`xcrun --show-sdk-path`"
+export PATH="$PATH:/usr/bin" # override for clang
+# Docker
+export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 
 ## Programming languages
 # Go
-export GOPATH="$HOME/Develop/go"
+export GOPATH="$HOME/.go"
 export GOBIN="$GOPATH/bin"
 export PATH="/usr/local/go/bin:$GOBIN:$PATH"
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
 
 ## Global aliases
 # Tmux
