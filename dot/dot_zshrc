@@ -12,18 +12,6 @@ plugins=(git)
 # Load default settings from OMZ
 source $ZSH/oh-my-zsh.sh
 
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-fi
-
 # Pyenv
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export WASMTIME_HOME="$HOME/.wasmtime"
-
-export PATH="$WASMTIME_HOME/bin:$PATH"

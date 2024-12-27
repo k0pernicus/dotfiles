@@ -49,5 +49,10 @@ alias ga="git add"
 alias gci="git commit -S"
 alias gm="git mv"
 
+alias vim="nvim"
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+fi
+
 ## Functions
 [ -f .func ] && source .func
