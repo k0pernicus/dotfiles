@@ -1,7 +1,7 @@
 ## Glitchees files
 
 # Common
-if [ -f ~/.gtc_comm ]; then
+if [ -f ~/.config/.gtc_comm ]; then
   echo "> Loading Common config..."
   start=${SECONDS}
   source ~/.config/.gtc_comm # Common / System stuff
@@ -10,7 +10,7 @@ if [ -f ~/.gtc_comm ]; then
 fi
 
 # Tools
-if [ -f ~/.gtc_tool ]; then
+if [ -f ~/.config/.gtc_tool ]; then
   echo "> Loading Tooling config..."
   start=${SECONDS}
   source ~/.config/.gtc_tool # Tooling
@@ -19,7 +19,7 @@ if [ -f ~/.gtc_tool ]; then
 fi
 
 # Programming environment
-if [ -f ~/.gtc_prog ]; then
+if [ -f ~/.config/.gtc_prog ]; then
   echo "> Loading Programming config..."
   start=${SECONDS}
   source ~/.config/.gtc_prog # Programming configuration
@@ -28,7 +28,7 @@ if [ -f ~/.gtc_prog ]; then
 fi
 
 # Functions
-if [ -f ~/.gtc_func ]; then
+if [ -f ~/.config/.gtc_func ]; then
   echo "> Loading Functions config..."
   start=${SECONDS}
   source ~/.config/.gtc_func # Common functions
