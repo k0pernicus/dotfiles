@@ -149,7 +149,7 @@ echo "${GREEN}Copying Ghostty settings..."
 cp config/ghostty_config $HOME/Library/Application\ Support/com.mitchellh.ghostty/config
 # Neovim
 echo "${GREEN}Copying neovim settings..."
-cp -r config/dot_config/nvim $HOME/.config
+cp -r config/nvim $HOME/.config
 
 # Settings
 echo
