@@ -1,0 +1,105 @@
+#################
+# CONFIGURATION #
+#################
+
+# Homebrew Casks: Applications installed via Homebrew Cask.
+# These are GUI applications available through Homebrew.
+CASKS=(
+  ghostty
+  brave-browser
+  visual-studio-code
+  vlc
+  discord
+  ollama
+  transmission
+  mullvad-vpn
+  docker-desktop
+  anytype
+)
+
+# Homebrew Formulae: Command line tools installed via Homebrew.
+FORMULAE=(
+  tree
+  wget
+  nvim
+  tmux
+  make
+  cmake
+  gpg2
+  ruby
+)
+
+# VSCode Extensions: Specifies the IDs of Visual Studio Code extensions to install.
+# Each ID corresponds to an extension on the Visual Studio Code Marketplace.
+VSCODE=(
+  "Continue.continue"
+  "DaltonMenezes.aura-theme"
+  "ms-vscode.cpptools-extension-pack"
+  "Catppuccin.catppuccin-vsc"
+  "ms-azuretools.vscode-containers"
+  "Dart-Code.dart-code"
+  "ms-vscode-remote.remote-containers"
+  "ms-azuretools.vscode-docker"
+  "Dart-Code.flutter"
+  "golang.go"
+  "PKief.material-icon-theme"
+  "ms-python.vscode-pylance"
+  "ms-python.python"
+  "ms-python.debugpy"
+  "1YiB.rust-bundle"
+  "dustypomerleau.rust-syntax"
+  "rust-lang.rust-analyzer"
+  "swiftlang.swift-vscode"
+  "vscodevim.vim"
+)
+
+# App Store Apps: List of App Store app IDs to install via `mas` (Mac App Store CLI).
+# Each number corresponds to an application's ID in the App Store.
+APPSTORE=(
+  937984704  # Amphetamine
+  1352778147 # Bitwarden
+  1193539993 # Brother Printer Driver
+  640199958  # Apple Developer
+  1464477788 # HACK
+  441258766  # Magnet
+  1444636541 # Photomator
+  1472432422 # Wayback Machine
+  1662217862 # Wipr
+)
+
+# SYSTEM SETTINGS: Commands to configure macOS system preferences and behaviors.
+SETTINGS=(
+  # Sets the Bluetooth mouse to two-button mode
+  "defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode TwoButton"
+  # Sets the multi-touch mouse to two-button mode
+  "defaults write com.apple.AppleMultitouchMouse.plist MouseButtonMode TwoButton"
+  # Shows all file extensions in Finder
+  "defaults write -g AppleShowAllExtensions -bool true"
+  # Shows hidden files in Finder
+  "defaults write com.apple.finder AppleShowAllFiles true"
+  # Shows the path bar in Finder
+  "defaults write com.apple.finder ShowPathbar -bool true"
+  # Shows the status bar in Finder
+  "defaults write com.apple.finder ShowStatusBar -bool true"
+  # Makes new Finder windows open in the home directory
+  "defaults write com.apple.finder NewWindowTarget PfHm"
+  # Sets the preferred view style in Finder to list view
+  "defaults write com.apple.Finder FXPreferredViewStyle Nlsv"
+  # Makes Finder sort folders before files
+  "defaults write com.apple.finder _FXSortFoldersFirst -bool true"
+  # Dont create .DS_Store Files On Network Or USB Volumes
+  "defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true"
+  "defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true"
+  # Disable the warning when changing a file extension
+  "defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false"
+  # Makes the Library folder visible in Finder
+  "chflags nohidden ~/Library"
+)
+
+DOCK_ADD=(
+  "/Applications/Visual Studio Code.app"
+)
+
+DOCK_REMOVE=(
+  "TV"
+)

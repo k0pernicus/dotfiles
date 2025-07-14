@@ -8,7 +8,7 @@ auto-update-channel = stable
 # Theme
 theme = Dracula
 shell-integration = zsh
-background-opacity = 0.5
+background-opacity = 0.85
 background-blur-radius = 20
 unfocused-split-opacity = 0.45
 
@@ -16,8 +16,8 @@ unfocused-split-opacity = 0.45
 window-vsync = true
 window-inherit-working-directory = true
 window-theme = system
-window-height = 48
-window-width = 144
+window-height = 58
+window-width = 164
 window-save-state = always
 
 # Cursor
@@ -29,12 +29,3 @@ window-inherit-font-size = false
 bold-is-bright = true
 font-family = "Source Code Pro"
 font-size = 13
-
-# Keybinds
-keybind = ctrl+k=close_surface
-keybind = ctrl+v=new_split:right
-keybind = ctrl+h=new_split:down
-keybind = ctrl+left=goto_split:left
-keybind = ctrl+up=goto_split:top
-keybind = ctrl+down=goto_split:bottom
-keybind = ctrl+right=goto_split:right

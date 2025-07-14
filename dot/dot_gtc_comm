@@ -1,0 +1,9 @@
+## General
+export EDITOR=nvim # Use vim as default editor
+export LANG="en_US.UTF-8"
+export TERM=xterm-256color
+
+## Git
+alias ga="git add"
+alias gci="git commit -S"
+alias gm="git mv"

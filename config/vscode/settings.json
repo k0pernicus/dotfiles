@@ -99,6 +99,13 @@
             120,
         ]
     },
+    // Swift
+    "[swift]": {
+        "editor.rulers": [
+            80,
+            120
+        ]
+    },
     // Material icon
     "material-icon-theme.hidesExplorerArrows": true,
 }

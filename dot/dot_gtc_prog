@@ -1,0 +1,19 @@
+### Programming languages
+
+# Go
+export GOPATH="$HOME/.go"
+export GOBIN="$GOPATH/bin"
+export PATH="/usr/local/go/bin:$GOBIN:$PATH"
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Swift
+source $HOME/.swiftly/env.sh
+
+# Ruby
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export GEM_HOME="$HOME/.gem"
+export PATH="$GEM_HOME/ruby/3.4.0/bin:$PATH"
+
+# Python

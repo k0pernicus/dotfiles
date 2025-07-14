@@ -1,58 +1,37 @@
-# General
-export EDITOR=vim # Use vim as default editor
-export LANG="en_US.UTF-8"
+## Glitchees files
 
-# Additional security guide here:
-# https://github.com/drduh/macOS-Security-and-Privacy-Guide#homebrew
-export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_NO_INSECURE_REDIRECT=1
-export HOMEBREW_CASK_OPTS=--require-sha
-# Brew location(s)
-export PATH="/opt/homebrew/bin/:/usr/local/sbin:$PATH"
-eval $(/opt/homebrew/bin/brew shellenv)
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export LD_LIBRARY_PATH="/opt/homebrew/lib:$LD_LIBRARY_PATH"
-export DYLD_LIBRARY_PATH="/opt/homebrew/lib:$DYLD_LIBRARY_PATH"
-# Git signin
-export GPG_TTY=$(tty)
-# Vulkan / MoltenVK SDK path
-# export VULKAN_SDK="$HOME/Develop/opt/VulkanSDK/1.3.211.0/macOS"
-# export PATH="$VULKAN_SDK/bin:$PATH"
-# export DYLD_LIBRARY_PATH="$VULKAN_SDK/lib:$DYLD_LIBRARY_PATH"
-# export VK_ICD_FILENAMES="$VULKAN_SDK/share/vulkan/icd.d/MoltenVK_icd.json"
-# export VK_LAYER_PATH="$VULKAN_SDK/share/vulkan/explicit_layer.d"
-# LLVM
-export SDKROOT="`xcrun --show-sdk-path`"
-export PATH="$PATH:/usr/bin" # override for clang
-# Docker
-export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
-
-## Programming languages
-# Go
-export GOPATH="$HOME/.go"
-export GOBIN="$GOPATH/bin"
-export PATH="/usr/local/go/bin:$GOBIN:$PATH"
-
-# Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
-# Rust
-export PATH="$HOME/.cargo/bin:$PATH"
-
-## Global aliases
-# Tmux
-alias tmux="TERM=screen-256color-bce tmux"
-# Git
-alias ga="git add"
-alias gci="git commit -S"
-alias gm="git mv"
-
-alias vim="nvim"
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+# Common
+if [ -f ~/.gtc_comm ]; then
+  echo "> Loading Common config..."
+  start=${SECONDS}
+  source ~/.config/.gtc_comm # Common / System stuff
+  end=${SECONDS}
+  echo "\t> Took $((end - start)) seconds"
 fi
 
-## Functions
-[ -f .func ] && source .func
+# Tools
+if [ -f ~/.gtc_tool ]; then
+  echo "> Loading Tooling config..."
+  start=${SECONDS}
+  source ~/.config/.gtc_tool # Tooling
+  end=${SECONDS}
+  echo "\t> Took $((end - start)) seconds"
+fi
+
+# Programming environment
+if [ -f ~/.gtc_prog ]; then
+  echo "> Loading Programming config..."
+  start=${SECONDS}
+  source ~/.config/.gtc_prog # Programming configuration
+  end=${SECONDS}
+  echo "\t> Took $((end - start)) seconds"
+fi
+
+# Functions
+if [ -f ~/.gtc_func ]; then
+  echo "> Loading Functions config..."
+  start=${SECONDS}
+  source ~/.config/.gtc_func # Common functions
+  end=${SECONDS}
+  echo "\t> Took $((end - start)) seconds"
+fi
