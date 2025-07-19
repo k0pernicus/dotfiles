@@ -30,7 +30,7 @@
     "files.trimTrailingWhitespace": true,
     // TERMINAL
     "terminal.integrated.showExitAlert": false,
-    "terminal.integrated.fontSize": 11,
+    "terminal.integrated.fontSize": 12,
     "window.openFoldersInNewWindow": "off",
     // GIT
     "git.enabled": true,

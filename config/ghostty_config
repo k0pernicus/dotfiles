@@ -16,8 +16,8 @@ unfocused-split-opacity = 0.45
 window-vsync = true
 window-inherit-working-directory = true
 window-theme = system
-window-height = 58
-window-width = 164
+window-height = 68
+window-width = 184
 window-save-state = always
 
 # Cursor
@@ -28,4 +28,4 @@ cursor-style-blink = true
 window-inherit-font-size = false
 bold-is-bright = true
 font-family = "Source Code Pro"
-font-size = 13
+font-size = 12
