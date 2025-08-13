@@ -44,7 +44,6 @@
     "workbench.editor.showTabs": "single",
     "workbench.statusBar.visible": true,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Catppuccin Mocha",
     "workbench.editor.showIcons": true,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
@@ -108,4 +107,12 @@
     },
     // Material icon
     "material-icon-theme.hidesExplorerArrows": true,
+    // Vim
+    "vim.leader": "space", // space as lead key
+    "vim.handleKeys": {
+        "<C-h>": false, // disable internal key motions
+        "<C-j>": false, // disable internal key motions
+        "<C-k>": false, // disable internal key motions
+        "<C-l>": false // disable internal key motions
+    }
 }
