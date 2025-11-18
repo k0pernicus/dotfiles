@@ -1,0 +1,23 @@
+[env]
+TERM = "xterm-256color"
+
+[window]
+dimensions = { columns = 144, lines = 44 }
+padding = { x = 1, y = 1}
+decorations = "Full"
+opacity = 0.78
+blur = true
+decorations_theme_variant = "None"
+option_as_alt = "OnlyLeft"
+
+[scrolling]
+history = 50000
+
+[font]
+# normal = { family = "Source Code Pro", style = "Regular" }
+size = 11.25
+
+[cursor]
+style = { shape = "Block", blinking = "Always" }
+blink_interval = 750
+blink_timeout = 180

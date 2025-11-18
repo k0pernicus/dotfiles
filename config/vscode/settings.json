@@ -39,6 +39,9 @@
     // TELEMETRY AND UPDATE
     "telemetry.telemetryLevel": "off",
     "update.mode": "manual",
+    // AI AGENTS
+    "chat.agent.enabled": false,
+    "chat.disableAIFeatures": true,
     // WORKBENCH
     "workbench.activityBar.location": "top",
     "workbench.editor.showTabs": "single",
@@ -106,13 +109,5 @@
         ]
     },
     // Material icon
-    "material-icon-theme.hidesExplorerArrows": true,
-    // Vim
-    "vim.leader": "space", // space as lead key
-    "vim.handleKeys": {
-        "<C-h>": false, // disable internal key motions
-        "<C-j>": false, // disable internal key motions
-        "<C-k>": false, // disable internal key motions
-        "<C-l>": false // disable internal key motions
-    }
+    "material-icon-theme.hidesExplorerArrows": true
 }
