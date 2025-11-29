@@ -3,6 +3,9 @@ export EDITOR=nvim # Use vim as default editor
 export LANG="en_US.UTF-8"
 export TERM=xterm-256color
 
+## ZSH
+# export ZDOTDIR="$HOME/.config/zsh" # Useful to move zcompdump automatically
+
 ## Git
 alias ga="git add"
 alias gci="git commit -S"
