@@ -1,0 +1,37 @@
+## Glitchees files
+
+# Common
+if [ -f ~/.config/.gtc_comm ]; then
+  echo "> Loading Common config..."
+  start=${SECONDS}
+  source ~/.config/.gtc_comm # Common / System stuff
+  end=${SECONDS}
+  echo "\t> Took $((end - start)) seconds"
+fi
+
+# Tools
+if [ -f ~/.config/.gtc_tool ]; then
+  echo "> Loading Tooling config..."
+  start=${SECONDS}
+  source ~/.config/.gtc_tool # Tooling
+  end=${SECONDS}
+  echo "\t> Took $((end - start)) seconds"
+fi
+
+# Programming environment
+if [ -f ~/.config/.gtc_prog ]; then
+  echo "> Loading Programming config..."
+  start=${SECONDS}
+  source ~/.config/.gtc_prog # Programming configuration
+  end=${SECONDS}
+  echo "\t> Took $((end - start)) seconds"
+fi
+
+# Functions
+if [ -f ~/.config/.gtc_func ]; then
+  echo "> Loading Functions config..."
+  start=${SECONDS}
+  source ~/.config/.gtc_func # Common functions
+  end=${SECONDS}
+  echo "\t> Took $((end - start)) seconds"
+fi

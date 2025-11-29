@@ -1,0 +1,12 @@
+## Tools
+
+# GPU programming
+# This is for PyTorch, as the 10.3.5 bin version from AMD
+# has not been released officialy
+export HSA_OVERRIDE_GFX_VERSION=10.3.0
+
+# Git signin
+export GPG_TTY=$(tty)
+
+# Tmux
+alias tmux="TERM=screen-256color-bce tmux"

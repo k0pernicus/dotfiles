@@ -1,0 +1,18 @@
+#!bin/bash
+
+gclone() {
+    c_pwd=`pwd`
+    cd $HOME/Devel
+    git clone git@github.com:k0pernicus/$1.git
+    cd $c_pwd
+}
+
+update_hugo() {
+    c_pwd=`pwd`
+    cd $HOME/Devel
+    [[ -d hugo ]] || git clone https://github.com/gohugoio/hugo.git && \
+    cd hugo && \
+    git pull && \
+    go install --tags extended
+    cd $c_pwd
+}
