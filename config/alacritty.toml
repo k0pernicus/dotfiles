@@ -1,12 +1,15 @@
 [env]
 TERM = "xterm-256color"
 
+[terminal]
+shell = "/bin/zsh"
+
 [window]
-dimensions = { columns = 144, lines = 44 }
+dimensions = { columns = 150, lines = 48 }
 padding = { x = 1, y = 1}
 decorations = "Full"
-opacity = 0.78
-blur = true
+opacity = 0.90
+blur = false
 decorations_theme_variant = "None"
 option_as_alt = "OnlyLeft"
 
@@ -14,7 +17,7 @@ option_as_alt = "OnlyLeft"
 history = 50000
 
 [font]
-# normal = { family = "Source Code Pro", style = "Regular" }
+normal = { family = "Source Code Pro", style = "Regular" }
 size = 11.25
 
 [cursor]
