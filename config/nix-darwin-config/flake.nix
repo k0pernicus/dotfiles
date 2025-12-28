@@ -28,6 +28,12 @@
           pkgs.gnupg
         ];
 
+      networking.applicationFirewall.enable = true;
+      networking.applicationFirewall.enableStealthMode = true;
+      networking.applicationFirewall.allowSigned = true;
+      networking.applicationFirewall.allowSignedApp = true; 
+      networking.computerName = "deimos";
+
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
 
