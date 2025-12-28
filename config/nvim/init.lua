@@ -30,22 +30,17 @@ vim.keymap.set('n', 'bB', ':bprev<CR>')
 vim.keymap.set('n', 'bd', ':bdelete<CR>')
 --vim.keymap.set('n', '<C-S-Left>', ':bprev<CR>')
 --vim.keymap.set('n', '<C-S-Right>', ':bnext<CR>')
-vim.keymap.set('n', '<C-Left>', '<C-W><C-H>')
-vim.keymap.set('n', '<C-Down>', '<C-W><C-J>')
-vim.keymap.set('n', '<C-Up>', '<C-W><C-K>')
-vim.keymap.set('n', '<C-Right>', '<C-W><C-L>')
+-- Using lowercase h, j, k, l is standard practice
+vim.keymap.set('n', '<C-Left>', '<C-w>h', { remap = true; desc = 'Move to left split' })
+vim.keymap.set('n', '<C-Down>', '<C-w>j', { remap = true; desc = 'Move to bottom split' })
+vim.keymap.set('n', '<C-Up>', '<C-w>k', { remap = true; desc = 'Move to top split' })
+vim.keymap.set('n', '<C-Right>', '<C-w>l', { remap = true; desc = 'Move to right split' })
 vim.keymap.set('n', '<M-Up>', ':resize -3<CR>')
 vim.keymap.set('n', '<M-Down>', ':resize +3<CR>')
 vim.keymap.set('n', '<M-S-Up>', ':vertical resize -3<CR>')
 vim.keymap.set('n', '<M-S-Down>', ':vertical resize +3<CR>')
 
-
--- nnoremap <C-N> :bprev<CR> " previous buffer
--- nnoremap <C-n> :bnext<CR> " next buffer
--- nnoremap <C-b> :bdelete<CR> " delete the current buffer
--- nnoremap <C-H> <C-W><C-H> " go to left
--- nnoremap <C-J> <C-W><C-J> " go to down
--- nnoremap <C-K> <C-W><C-K> " go to up
--- nnoremap <C-L> <C-W><C-L> " go to right
+vim.opt.encoding = "utf-8"
+vim.g.have_nerd_font = true -- Tells plugins you have a Nerd Font installed
 
 require("config.lazy")

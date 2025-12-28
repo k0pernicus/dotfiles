@@ -16,11 +16,11 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function()
-            local lspconfig = require("lspconfig")
-            lspconfig.rust_analyzer.setup({})
-            lspconfig.clangd.setup({
+            vim.lsp.config('clangd', {
                 filetypes = {"c", "cpp", "h", "hpp"}
             })
+            vim.lsp.enable('clang')
+
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
             vim.keymap.set('n', 'cd', vim.lsp.buf.definition, {})
             vim.keymap.set('n', 'cD', vim.lsp.buf.declaration, {})
