@@ -11,7 +11,7 @@
     "editor.cursorBlinking": "smooth",
     "editor.cursorStyle": "line",
     "editor.cursorSmoothCaretAnimation": "on",
-    "editor.fontFamily": "Source Code Pro",
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
     "editor.fontLigatures": true,
     "editor.fontSize": 12,
     "editor.formatOnSave": true,
