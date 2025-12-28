@@ -6,4 +6,6 @@ export GOBIN="$GOPATH/bin"
 export PATH="/usr/local/go/bin:$GOBIN:$PATH"
 
 # Python
-source $HOME/.local/bin/env
+if [ -d $HOME/.local/bin ]; then 
+  source $HOME/.local/bin/env
+fi

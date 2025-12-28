@@ -1,37 +1,47 @@
 ## Glitchees files
 
+p=$HOME/.config
+
 # Common
-if [ -f ~/.config/.gtc_comm ]; then
+if [ -f ${p}/.gtc_comm ]; then
   echo "> Loading Common config..."
   start=${SECONDS}
-  source ~/.config/.gtc_comm # Common / System stuff
+  source ${p}/.gtc_comm # Common / System stuff
   end=${SECONDS}
   echo "\t> Took $((end - start)) seconds"
+else
+  echo "\t> .gtc_comm not found..."
 fi
 
 # Tools
-if [ -f ~/.config/.gtc_tool ]; then
+if [ -f ${p}/.gtc_tool ]; then
   echo "> Loading Tooling config..."
   start=${SECONDS}
-  source ~/.config/.gtc_tool # Tooling
+  source ${p}/.gtc_tool # Tooling
   end=${SECONDS}
   echo "\t> Took $((end - start)) seconds"
+else
+  echo "\t> .gtc_tool not found..."
 fi
 
 # Programming environment
-if [ -f ~/.config/.gtc_prog ]; then
+if [ -f ${p}/.gtc_prog ]; then
   echo "> Loading Programming config..."
   start=${SECONDS}
-  source ~/.config/.gtc_prog # Programming configuration
+  source ${p}/.gtc_prog # Programming configuration
   end=${SECONDS}
   echo "\t> Took $((end - start)) seconds"
+else
+  echo "\t> .gtc_prog not found..."
 fi
 
 # Functions
-if [ -f ~/.config/.gtc_func ]; then
+if [ -f ${p}/.gtc_func ]; then
   echo "> Loading Functions config..."
   start=${SECONDS}
-  source ~/.config/.gtc_func # Common functions
+  source ${p}/.gtc_func # Common functions
   end=${SECONDS}
   echo "\t> Took $((end - start)) seconds"
+else
+  echo "\t> .gtc_func not found..."
 fi
