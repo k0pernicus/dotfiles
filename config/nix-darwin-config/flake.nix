@@ -40,19 +40,56 @@
       # $ darwin-rebuild changelog
       system.stateVersion = 6;
      
-      system.primaryUser = "${user}"; 
+      system.primaryUser = "${user}";
+      # https://nix-darwin.github.io/nix-darwin/manual/
       system.defaults = {
+        # Whether to automatically switch between light and dark mode
+        NSGlobalDomain.AppleInterfaceStyleSwitchesAutomatically = true;
+        # Whether to enable “Natural” scrolling direction 
+        NSGlobalDomain."com.apple.swipescrolldirection" = true;
+        # Whether to enable trackpad secondary click
+        NSGlobalDomain."com.apple.trackpad.enableSecondaryClick" = true;
+        # Auto hide stage strip showing recent apps
+        WindowManager.AutoHide = true;
+        # Click to show desktop only in Stqge Manager
+        WindowManager.EnableStandardClickToShowDesktop = false;
+        # Do not allow Stage Manager by default
+        WindowManager.GloballyEnabled = false;
+        # Hide items in Stage Manager
+        WindowManager.HideDesktop = true;
+        # Hide widgets in Stage Manager
+        WindowManager.StageManagerHideWidgets = true;
+        # Hide items in Desktop mode 
+        WindowManager.StandardHideDesktopIcons = true;
+        # Hide widgets in Desktop mode
+        WindowManager.StandardHideWidgets = true;
+        
+        # Show battery percentage in the menu bar
+        controlcenter.BatteryShowPercentage = true;
+
         trackpad.Clicking = true;
 
         dock.autohide = true;
+        dock.autohide-delay = 0.25;
+        dock.largesize = 24;
+        dock.magnification = true;
+        dock.mineffect = "genie";
+        dock.show-recents = false;
         dock.tilesize = 48;
         
         finder.AppleShowAllExtensions = true;
-        
+        finder.NewWindowTarget = "Home";
+        finder.ShowPathbar = true;
+        finder.ShowStatusBar = true;
+
+        # Deactivates the emoji and symbols hiting the Fn key
+        hitoolbox.AppleFnUsageType = "Do Nothing";
+
+        loginwindow.DisableConsoleAccess = false;
+        loginwindow.GuestEnabled = false;
         loginwindow.LoginwindowText = "beware.";
         
         screencapture.location = "~/Pictures/screenshots";
-        
         screensaver.askForPasswordDelay = 10;
       };
 
