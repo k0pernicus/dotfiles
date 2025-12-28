@@ -57,3 +57,11 @@ if [ -f $HOME/.config/.gtc_func ]; then
 else
 	echo "ERROR: Did not found gtc_func for backup"
 fi
+
+if [ -d $HOME/System/nix-darwin-config ]; then
+    echo "Backup of nix-darwin-config folder..."
+    cp -r $HOME/System/nix-darwin-config ${PWD}/config
+    echo "Done"
+else
+    echo "ERROR: Did not found System/nix-darwin-config"
+fi
