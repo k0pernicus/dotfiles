@@ -9,14 +9,17 @@
     # GUIs
     casks = [
       "alacritty"
+      "anytype"
       "crossover"
       "discord"
+      "docker-desktop"
       "firefox"
       "mullvad-vpn"
       "signal"
-      # "steam" - installed through crossover
       "thunderbird"
+      "transmission"
       "visual-studio-code"
+      "vlc"
     ];
     
     # Mac App Store apps
@@ -27,6 +30,7 @@
       "Instapaper" = 288545208;
       "LocalSend" = 1661733229;
       "Magnet" = 441258766;
+      "Photomator" = 1444636541;
     };
   };
 }
