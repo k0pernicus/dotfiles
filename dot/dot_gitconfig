@@ -1,0 +1,10 @@
+[user]
+	name = k0pernicus
+	email = dev@carette.xyz
+	signingkey = 8FD56F34317F95C4
+[core]
+	editor = nvim
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
