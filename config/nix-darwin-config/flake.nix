@@ -49,6 +49,19 @@
       system.primaryUser = "${user}";
       # https://nix-darwin.github.io/nix-darwin/manual/
       system.defaults = {
+
+        CustomUserPreferences = {
+          # Disable siri
+          "com.apple.Siri" = {
+            "UAProfileCheckingStatus" = 0;
+            "siriEnabled" = 0;
+          };
+          # Disable personalized ads 
+          "com.apple.AdLib" = {
+            allowApplePersonalizedAdvertising = false;
+          };
+        };
+
         # Whether to automatically switch between light and dark mode
         NSGlobalDomain.AppleInterfaceStyleSwitchesAutomatically = true;
         # Whether to enable “Natural” scrolling direction 
