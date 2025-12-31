@@ -1,8 +1,18 @@
-{ pkgs, ... }: {
+{ nixpkgs-dev, pkgs, ... }: {
+  nixpkgs.overlays = [
+    (final: prev: {
+      go = nixpkgs-dev.legacyPackages.${prev.system}.go_1_24;
+      uv = nixpkgs-dev.legacyPackages.${prev.system}.uv;
+      odin = nixpkgs-dev.legacyPackages.${prev.system}.odin;
+      ols = nixpkgs-dev.legacyPackages.${prev.system}.ols;
+    })
+  ];
+
   environment.systemPackages = with pkgs; [
     uv
     odin
-    
+    go
+
     # Build tools often needed for Odin/C/C++
     gnumake
     cmake
