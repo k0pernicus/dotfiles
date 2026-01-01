@@ -156,7 +156,7 @@
         "type": "github"
       }
     },
-    "nixpkgs-dev": {
+    "nixpkgs-go": {
       "locked": {
         "lastModified": 1741310760,
         "narHash": "sha256-aizILFrPgq/W53Jw8i0a1h1GZAAKtlYOrG/A5r46gVM=",
@@ -184,6 +184,22 @@
       "original": {
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "nixpkgs-odin": {
+      "locked": {
+        "lastModified": 1762353649,
+        "narHash": "sha256-aSN2RQReXbpla4BqT+r3OAaiOTwoM5IATQBwKtakSpY=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "351954accc0620184355b1eb318c03a5ef08c6ae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "351954accc0620184355b1eb318c03a5ef08c6ae",
         "type": "github"
       }
     },
@@ -257,7 +273,8 @@
         "mac-app-util": "mac-app-util",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs_5",
-        "nixpkgs-dev": "nixpkgs-dev"
+        "nixpkgs-go": "nixpkgs-go",
+        "nixpkgs-odin": "nixpkgs-odin"
       }
     },
     "systems": {

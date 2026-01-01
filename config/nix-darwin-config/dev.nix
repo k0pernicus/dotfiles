@@ -1,10 +1,9 @@
-{ nixpkgs-dev, pkgs, ... }: {
+{ nixpkgs-go, nixpkgs-odin, pkgs, ... }: {
   nixpkgs.overlays = [
     (final: prev: {
-      go = nixpkgs-dev.legacyPackages.${prev.system}.go_1_24;
-      uv = nixpkgs-dev.legacyPackages.${prev.system}.uv;
-      odin = nixpkgs-dev.legacyPackages.${prev.system}.odin;
-      ols = nixpkgs-dev.legacyPackages.${prev.system}.ols;
+      go = nixpkgs-go.legacyPackages.${prev.system}.go_1_24;
+      odin = nixpkgs-odin.legacyPackages.${prev.system}.odin;
+      ols = nixpkgs-odin.legacyPackages.${prev.system}.ols;
     })
   ];
 
