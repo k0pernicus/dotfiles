@@ -21,8 +21,10 @@ vim.cmd("set colorcolumn=+1")
 vim.cmd("set scrolloff=999")
 vim.cmd("autocmd FileType * set colorcolumn=120")
 vim.cmd("autocmd FileType python set colorcolumn=80")
+vim.cmd("set clipboard+=unnamedplus")
 
-vim.g.mapleader = ";"
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 -- vim.g.maplocalleader = "\\"
 
 vim.keymap.set('n', 'bb', ':bnext<CR>')
@@ -31,10 +33,10 @@ vim.keymap.set('n', 'bd', ':bdelete<CR>')
 --vim.keymap.set('n', '<C-S-Left>', ':bprev<CR>')
 --vim.keymap.set('n', '<C-S-Right>', ':bnext<CR>')
 -- Using lowercase h, j, k, l is standard practice
-vim.keymap.set('n', '<C-Left>', '<C-w>h', { remap = true; desc = 'Move to left split' })
-vim.keymap.set('n', '<C-Down>', '<C-w>j', { remap = true; desc = 'Move to bottom split' })
-vim.keymap.set('n', '<C-Up>', '<C-w>k', { remap = true; desc = 'Move to top split' })
-vim.keymap.set('n', '<C-Right>', '<C-w>l', { remap = true; desc = 'Move to right split' })
+vim.keymap.set('n', '<C-Left>', '<C-w>h', { remap = true, desc = 'Move to left split' })
+vim.keymap.set('n', '<C-Down>', '<C-w>j', { remap = true, desc = 'Move to bottom split' })
+vim.keymap.set('n', '<C-Up>', '<C-w>k', { remap = true, desc = 'Move to top split' })
+vim.keymap.set('n', '<C-Right>', '<C-w>l', { remap = true, desc = 'Move to right split' })
 vim.keymap.set('n', '<M-Up>', ':resize -3<CR>')
 vim.keymap.set('n', '<M-Down>', ':resize +3<CR>')
 vim.keymap.set('n', '<M-S-Up>', ':vertical resize -3<CR>')
@@ -42,5 +44,13 @@ vim.keymap.set('n', '<M-S-Down>', ':vertical resize +3<CR>')
 
 vim.opt.encoding = "utf-8"
 vim.g.have_nerd_font = true -- Tells plugins you have a Nerd Font installed
+
+vim.diagnostic.config({
+    virtual_text = true,      -- Shows the error message at the end of the line
+    signs = true,             -- Keeps the 'E' in the gutter
+    update_in_insert = false, -- Don't show errors while you are still typing
+    underline = true,         -- Underline the actual code that is broken
+    severity_sort = true,
+})
 
 require("config.lazy")
