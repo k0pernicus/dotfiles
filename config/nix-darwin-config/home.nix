@@ -70,6 +70,6 @@
     ".config/.gtc_tool".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_tool";
     ".zprofile".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_zprofile";
     # vscode
-    "Library/Application Support/Code/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/config/vscode/settings.json";
+    "Library/Application Support/VSCodium/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/config/vscode/settings.json";
   };
 }

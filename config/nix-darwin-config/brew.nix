@@ -18,7 +18,7 @@
       "signal"
       "thunderbird"
       "transmission"
-      "visual-studio-code"
+      "vscodium"
       "vlc"
     ];
     
