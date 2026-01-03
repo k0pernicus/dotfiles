@@ -20,16 +20,16 @@
     userHome = "/Users/${user}"; 
     dotfilesPath = "${userHome}/Devel/dotfiles";
     configuration = { pkgs, ... }: {
-           # Usage of determinate - avoid conflicts with self-nix of nix-darwin
+      # Usage of determinate - avoid conflicts with self-nix of nix-darwin
       nix.enable = false;
 
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
-      environment.systemPackages =
-        [
-          pkgs.wget
-          pkgs.gnupg
-        ];
+      environment.systemPackages = with pkgs; [
+        wget
+        gnupg
+        nixd
+      ];
 
       networking.applicationFirewall.enable = true;
       networking.applicationFirewall.enableStealthMode = true;
