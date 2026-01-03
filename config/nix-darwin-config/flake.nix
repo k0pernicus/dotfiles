@@ -63,14 +63,23 @@
           "com.apple.AdLib" = {
             allowApplePersonalizedAdvertising = false;
           };
+          "com.apple.desktopservices" = {
+            # Avoid creating .DS_Store files on network or USB volumes
+            DSDontWriteNetworkStores = true;
+            DSDontWriteUSBStores = true;
+          };
         };
 
         # Whether to automatically switch between light and dark mode
         NSGlobalDomain.AppleInterfaceStyleSwitchesAutomatically = true;
         # Whether to enable “Natural” scrolling direction 
         NSGlobalDomain."com.apple.swipescrolldirection" = true;
+        # Enable tap to click behaviour
+        NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
         # Whether to enable trackpad secondary click
         NSGlobalDomain."com.apple.trackpad.enableSecondaryClick" = true;
+        # Use F1, F2, etc. keys as standard function keys 
+        NSGlobalDomain."com.apple.keyboard.fnState" = true;
         # Auto hide stage strip showing recent apps
         WindowManager.AutoHide = true;
         # Click to show desktop only in Stqge Manager
