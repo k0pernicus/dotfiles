@@ -16,3 +16,11 @@ update_hugo() {
     go install --tags extended
     cd $c_pwd
 }
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    update_system() {
+        sudo darwin-rebuild switch --flake ~/System/nix-darwin-config 
+    }
+fi
