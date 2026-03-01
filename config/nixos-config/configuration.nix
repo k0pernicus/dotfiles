@@ -1,10 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   # Collect and remove old generations automatically every week
   nix.gc = {
@@ -13,21 +12,25 @@
     options = "--delete-older-than 14d";
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   boot.tmp = {
-      useTmpfs = true;
-      cleanOnBoot = true;
+    useTmpfs = true;
+    cleanOnBoot = true;
   };
   boot.loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
   };
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.initrd.luks.devices."luks-667c2261-a769-44d9-8310-cdd1e6f421cd".device = "/dev/disk/by-uuid/667c2261-a769-44d9-8310-cdd1e6f421cd";
+  boot.initrd.luks.devices."luks-667c2261-a769-44d9-8310-cdd1e6f421cd".device =
+    "/dev/disk/by-uuid/667c2261-a769-44d9-8310-cdd1e6f421cd";
   networking.hostName = "phobos";
 
   networking.networkmanager.enable = true;
@@ -72,13 +75,16 @@
   };
 
   programs.zsh.enable = true; # Enable zsh for everyone, but configure it per user (see home-manager)
-  
+
   users.users.antonin = {
     isNormalUser = true;
     description = "antonin";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.zsh;
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
   };
 
   fonts.packages = with pkgs; [
@@ -96,8 +102,9 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    curl
     asusctl
+    curl
+    nixfmt-rfc-style # the official nix formatter
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -125,9 +132,9 @@
   # Enable the firewall
   networking.firewall = {
     enable = true;
-    # allowedTCPPorts = [ 80 443 25565 ]; 
+    # allowedTCPPorts = [ 80 443 25565 ];
     # allowedUDPPorts = [ 25565 ];
   };
-  
+
   system.stateVersion = "25.11";
 }

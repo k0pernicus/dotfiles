@@ -42,7 +42,10 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "docker"];
+      plugins = [
+        "git"
+        "docker"
+      ];
       theme = "xiong-chiamiov-plus";
     };
 
@@ -58,26 +61,36 @@
       fi
     '';
   };
-  
+
   # Symlink to my development folder
   xdg.configFile = {
-    "alacritty".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/config/alacritty";
-    "nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/config/nvim";
-    "zellij".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/config/zellij";
+    "alacritty".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/config/alacritty";
+    "nvim".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/config/nvim";
+    "zellij".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/config/zellij";
   };
 
   home.file = {
     # git
-    ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/dot/dot_gitconfig";
+    ".gitconfig".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/dot/dot_gitconfig";
     # configuration
-    ".config/.gtc_comm".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/dot/dot_gtc_comm";
-    ".config/.gtc_func".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/dot/dot_gtc_func";
-    ".config/.gtc_prog".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/dot/dot_gtc_prog";
-    ".config/.gtc_tool".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/dot/dot_gtc_tool";
-    ".zprofile".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/dot/dot_zprofile";
+    ".config/.gtc_comm".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/dot/dot_gtc_comm";
+    ".config/.gtc_func".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/dot/dot_gtc_func";
+    ".config/.gtc_prog".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/dot/dot_gtc_prog";
+    ".config/.gtc_tool".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/dot/dot_gtc_tool";
+    ".zprofile".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/dot/dot_zprofile";
     # dev
-    ".config/VSCodium/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/config/vscode/settings.json";
-};
+    ".config/VSCodium/User/settings.json".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/config/vscode/settings.json";
+  };
 
   programs.home-manager.enable = true;
 }
