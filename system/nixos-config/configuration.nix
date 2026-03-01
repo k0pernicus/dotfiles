@@ -104,6 +104,7 @@
   environment.systemPackages = with pkgs; [
     asusctl
     curl
+    gcc
     nixfmt-rfc-style # the official nix formatter
   ];
 

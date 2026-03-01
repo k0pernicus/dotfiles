@@ -18,7 +18,7 @@ update_hugo() {
 }
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    FLAKE_DIR="$HOME/Devel/dotfiles/config/nixos-config"
+    FLAKE_DIR="$HOME/Devel/dotfiles/system/nixos-config"
     FLAKE_TARGET="$FLAKE_DIR/#phobos"
     REBUILD_CMD="nixos-rebuild"
 elif [[ "$OSTYPE" == "darwin"* ]]; then

@@ -7,11 +7,17 @@
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
+    # (dev) tools
     alacritty
     git
     tree-sitter
     zellij
 
+    # dev
+    go_1_25
+    rustup
+
+    # else
     anytype
     bitwarden-desktop
     discord
