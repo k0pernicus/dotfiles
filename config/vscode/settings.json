@@ -109,5 +109,6 @@
         ]
     },
     // Material icon
-    "material-icon-theme.hidesExplorerArrows": true
+    "material-icon-theme.hidesExplorerArrows": true,
+    "workbench.colorTheme": "Catppuccin Mocha"
 }
