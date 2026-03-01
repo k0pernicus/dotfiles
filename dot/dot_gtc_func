@@ -18,19 +18,23 @@ update_hugo() {
 }
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    update_system() {
-        sudo nixos-rebuild switch --flake ~/Devel/dotfiles/config/nixos-config/#phobos
-    }
-
+    FLAKE_DIR="$HOME/Devel/dotfiles/config/nixos-config"
+    FLAKE_TARGET="$FLAKE_DIR/#phobos"
+    REBUILD_CMD="nixos-rebuild"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
+    FLAKE_DIR="$HOME/System/nix-darwin-config"
+    FLAKE_TARGET="$FLAKE_DIR"
+    REBUILD_CMD="darwin-rebuild"
+fi
+
+if [[ -n "$FLAKE_DIR" ]]; then
     update_system() {
-        sudo darwin-rebuild switch --flake ~/System/nix-darwin-config 
+        echo "Updating nix system for target $FLAKE_TARGET..."
+        sudo "$REBUILD_CMD" switch --flake "$FLAKE_TARGET"
     }
 
     update_nix() {
-        c_pwd=`pwd`
-        cd ~/System/nix-darwin-config
-        sudo nix flake update
-        cd $c_pwd
+        echo "Updating flake inputs in $FLAKE_DIR..."
+        (cd "$FLAKE_DIR" && sudo nix flake update)
     }
 fi
