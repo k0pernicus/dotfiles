@@ -106,6 +106,9 @@
     curl
     gcc
     nixfmt-rfc-style # the official nix formatter
+    powertop
+    zip
+    unzip
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
