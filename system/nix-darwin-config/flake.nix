@@ -1,5 +1,5 @@
 {
-  description = "nix-darwin system flake - deimos";
+  description = "nix-darwin system flake - BatMac";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -35,7 +35,7 @@
       networking.applicationFirewall.enableStealthMode = true;
       networking.applicationFirewall.allowSigned = true;
       networking.applicationFirewall.allowSignedApp = true; 
-      networking.computerName = "deimos";
+      networking.computerName = "BatMac";
 
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
@@ -154,8 +154,8 @@
   in
   {
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#deimos
-    darwinConfigurations."deimos" = nix-darwin.lib.darwinSystem {
+    # $ darwin-rebuild build --flake .#BatMac
+    darwinConfigurations."BatMac" = nix-darwin.lib.darwinSystem {
       # Pass those informations to the submodules
       specialArgs = { inherit nixpkgs-go nixpkgs-odin user userHome dotfilesPath; };
       modules = [ 

@@ -3,7 +3,7 @@
   homebrew = {
     enable = true;
     onActivation.cleanup = "zap";
-    onActivation.autoUpdate = false;
+    onActivation.autoUpdate = true;
     onActivation.upgrade = true;
 
     # GUIs
