@@ -3,10 +3,13 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
+    
     # Pinning Go 1.24.1 specifically
     nixpkgs-go.url = "github:NixOS/nixpkgs/de0fe301211c267807afd11b12613f5511ff7433";
     nixpkgs-odin.url = "github:NixOS/nixpkgs/351954accc0620184355b1eb318c03a5ef08c6ae";
-    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
+    zig.url = "github:mitchellh/zig-overlay";
+    
     home-manager.url = "github:nix-community/home-manager";
     mac-app-util.url = "github:hraban/mac-app-util";
 
@@ -14,7 +17,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nixpkgs-go, nixpkgs-odin, home-manager, mac-app-util }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nixpkgs-go, nixpkgs-odin, home-manager, mac-app-util, zig }:
   let
     user = "antonin";
     userHome = "/Users/${user}"; 
@@ -159,6 +162,7 @@
       # Pass those informations to the submodules
       specialArgs = { inherit nixpkgs-go nixpkgs-odin user userHome dotfilesPath; };
       modules = [ 
+        { nixpkgs.overlays = [zig.overlays.default]; }
         configuration
         ./dev.nix
         ./brew.nix
