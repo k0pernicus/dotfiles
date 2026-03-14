@@ -5,10 +5,10 @@
 
   # Packages to install
   home.packages = with pkgs; [
-    # Developer - install zsh in another scope
     git
     tree-sitter
     zellij
+    irssi
   ];
 
   programs.neovim = {
