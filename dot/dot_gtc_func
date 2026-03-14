@@ -17,6 +17,20 @@ update_hugo() {
     cd $c_pwd
 }
 
+install_swiftly() {
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        curl -L https://download.swift.org/swiftly/linux/swiftly-$(uname -m).tar.gz > $HOME/Downloads/swiftly.tar.gz && \
+        tar zxf $HOME/Downloads/swiftly.tar.gz && \
+        ./$HOME/Downloads/swiftly/swiftly init && \
+        rm -r $HOME/Downloads/swiftly.tar.gz $HOME/Downloads/swiftly
+    elif [[ "$OSTYPE" == "darwin"* ]]; then
+         curl -L https://download.swift.org/swiftly/darwin/swiftly.pkg > $HOME/Downloads/swiftly.pkg && \
+        installer -pkg $HOME/Downloads/swiftly.pkg -target CurrentUserHomeDirectory && \
+        rm $HOME/Downloads/swiftly.pkg && \
+        $HOME/.swiftly/bin/swiftly init
+    fi
+}
+
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     FLAKE_DIR="$HOME/Devel/dotfiles/system/nixos-config"
     FLAKE_TARGET="$FLAKE_DIR/#phobos"

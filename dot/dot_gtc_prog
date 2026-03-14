@@ -5,6 +5,15 @@ export GOPATH="$HOME/.go"
 export GOBIN="$GOPATH/bin"
 export PATH="/usr/local/go/bin:$GOBIN:$PATH"
 
+# Swift
+export SWIFTLY_HOME_DIR="$HOME/.swiftly"
+export SWIFTLY_BIN_DIR="$SWIFTLY_HOME_DIR/bin"
+if [ ! -d $HOME/.swiftly ]; then
+    echo "Missing swiftly - run 'install_swiftly' command first!"
+else
+    . $HOME/.swiftly/env.sh
+fi
+
 # Playdate
 if [ -d $HOME/Devel/PlaydateSDK ]; then
     export PLAYDATE_SDK_PATH="$HOME/Devel/PlaydateSDK"
@@ -13,5 +22,5 @@ fi
 
 # Python
 if [ -d $HOME/.local/bin ]; then 
-  source $HOME/.local/bin/env
+    source $HOME/.local/bin/env
 fi
