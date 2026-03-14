@@ -11,7 +11,6 @@
     uv
     odin
     go
-    zigpkgs.master # or <version>/master-<date>/
 
     # Build tools often needed for Odin/C/C++
     gnumake
