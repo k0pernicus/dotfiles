@@ -140,5 +140,15 @@
     # allowedUDPPorts = [ 25565 ];
   };
 
+  # Enable virtualization for docker (rootless only)
+  # Store the images in the current user home
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+  virtualisation.docker.daemon.settings = {
+    data-root = "$HOME/.docker/images";
+  };
+
   system.stateVersion = "25.11";
 }
