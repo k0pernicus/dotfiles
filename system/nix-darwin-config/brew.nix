@@ -27,6 +27,7 @@
       "Amphetamine" = 937984704;
       "Bitwarden" = 1352778147;
       "Brother iPrint&Scan" = 1193539993;
+      "Hidden Bar" = 1452453066;      
       "Instapaper" = 288545208;
       "LocalSend" = 1661733229;
       "Magnet" = 441258766;
