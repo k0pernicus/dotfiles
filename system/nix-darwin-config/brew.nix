@@ -15,6 +15,7 @@
       "docker-desktop"
       "firefox"
       "mullvad-vpn"
+      "netnewswire"
       "signal"
       "thunderbird"
       "transmission"
