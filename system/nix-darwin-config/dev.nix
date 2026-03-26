@@ -16,6 +16,8 @@
     gnumake
     cmake
     ninja
+    ffmpeg
+    emscripten
 
     # LSP and Debuggers
     ols             # Odin Language Server
