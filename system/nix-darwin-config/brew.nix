@@ -27,6 +27,7 @@
     # Mac App Store apps
     masApps = {
       "Amphetamine" = 937984704;
+      "Apple Developer" = 640199958;
       "Bitwarden" = 1352778147;
       "Brother iPrint&Scan" = 1193539993;
       "Hidden Bar" = 1452453066;      
