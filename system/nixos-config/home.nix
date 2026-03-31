@@ -22,6 +22,7 @@
     bitwarden-desktop
     discord
     firefox
+    localsend
     mullvad-vpn
     signal-desktop
     thunderbird

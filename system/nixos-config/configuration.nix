@@ -116,6 +116,7 @@
     asusctl
     curl
     gcc
+    gnupg
     nixfmt-rfc-style # the official nix formatter
     powertop
     zip
