@@ -51,19 +51,21 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  services.xserver.enable = true;
   # plasma
-  # services.displayManager.sddm.enable = true;
-  # services.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+  };
 
   # gnome
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-  services.gnome = {
-    core-apps.enable = false;
-    core-developer-tools.enable = false;
-    games.enable = false;
-  };
+  # services.displayManager.gdm.enable = true;
+  # services.desktopManager.gnome.enable = true;
+  # services.gnome = {
+  #   core-apps.enable = false;
+  #   core-developer-tools.enable = false;
+  #   games.enable = false;
+  # };
 
   services.xserver.xkb = {
     layout = "fr";
@@ -118,7 +120,6 @@
     powertop
     zip
     unzip
-    gnome-browser-connector # for gnome-extensions
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
