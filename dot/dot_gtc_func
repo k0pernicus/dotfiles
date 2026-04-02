@@ -31,26 +31,42 @@ install_swiftly() {
     fi
 }
 
-gemini() {
+opencode() {
     local current_dir="$(pwd)"
+    local opencode_dir="$HOME/.config/opencode"
 
     # Check if the current directory path contains "/Devel/" or ends with "/Devel"
     if [[ "$current_dir" != */Devel/* ]] && [[ "$current_dir" != */Devel ]]; then
-        echo "! Run inside a 'Devel' directory to run the gemini-cli sandbox !"
+        echo "! Run inside a 'Devel' directory to run opencode !"
         return 1
     fi
 
-    mkdir -p "$HOME/.gemini-docker-state"
-    echo "Directory check passed. Launching gemini-cli sandbox..."
+    if [ ! -d "$opencode_dir" ]; then
+        echo "opencode directory ($HOME/.config/opencode) does not exist"
+        return 1
+    fi
 
-    # Launch the docker container with the current directory mounted to /workspace
     docker run -it --rm \
-        --user "$(id -u):$(id -g)" \
-        -e HOME=/gemini-home \
+        --add-host=host.docker.internal:host-gateway \
         -v "$current_dir:/workspace" \
-        -v "$HOME/.gemini-docker-state:/gemini-home" \
+        -v "$opencode_dir:/root/.config/opencode" \
         -w /workspace \
-        us-docker.pkg.dev/gemini-code-dev/gemini-cli/sandbox:0.36.0
+        ghcr.io/anomalyco/opencode
+}
+
+openwebui() {
+    local openwebui_dir="$HOME/.open-webui"
+
+    if [ ! -d "$openwebui_dir" ]; then
+        mkdir "$openwebui_dir"
+    fi
+
+    docker run -d --rm -p 3000:8080 \
+        --add-host=host.docker.internal:host-gateway \
+        -e WEBUI_AUTH=False \
+        -v "$openwebui_dir:/app/backend/data" \
+        --name open-webui \
+        ghcr.io/open-webui/open-webui:main
 }
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
