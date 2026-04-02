@@ -31,6 +31,28 @@ install_swiftly() {
     fi
 }
 
+gemini() {
+    local current_dir="$(pwd)"
+
+    # Check if the current directory path contains "/Devel/" or ends with "/Devel"
+    if [[ "$current_dir" != */Devel/* ]] && [[ "$current_dir" != */Devel ]]; then
+        echo "! Run inside a 'Devel' directory to run the gemini-cli sandbox !"
+        return 1
+    fi
+
+    mkdir -p "$HOME/.gemini-docker-state"
+    echo "Directory check passed. Launching gemini-cli sandbox..."
+
+    # Launch the docker container with the current directory mounted to /workspace
+    docker run -it --rm \
+        --user "$(id -u):$(id -g)" \
+        -e HOME=/gemini-home \
+        -v "$current_dir:/workspace" \
+        -v "$HOME/.gemini-docker-state:/gemini-home" \
+        -w /workspace \
+        us-docker.pkg.dev/gemini-code-dev/gemini-cli/sandbox:0.36.0
+}
+
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     FLAKE_DIR="$HOME/Devel/dotfiles/system/nixos-config"
     FLAKE_TARGET="$FLAKE_DIR/#phobos"
