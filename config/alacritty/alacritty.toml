@@ -5,7 +5,7 @@ TERM = "xterm-256color"
 shell = "zsh"
 
 [window]
-dimensions = { columns = 150, lines = 48 }
+dimensions = { columns = 180, lines = 64 }
 padding = { x = 5, y = 5}
 decorations = "Full"
 opacity = 0.90
