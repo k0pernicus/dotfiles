@@ -1,6 +1,6 @@
 { config, pkgs, dotfilesPath, user, userHome, ... }: {
   
-  home.stateVersion = "24.05";
+  home.stateVersion = "26.05";
   home.homeDirectory = "${userHome}";  
 
   # Packages to install
