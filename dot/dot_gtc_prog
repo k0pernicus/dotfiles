@@ -21,6 +21,6 @@ if [ -d "$HOME/Devel/PlaydateSDK" ]; then
 fi
 
 # Python
-if [ -d $HOME/.local/bin ]; then 
-    source $HOME/.local/bin/env
+if [ -d "$HOME/.local/bin" ]; then 
+    source "$HOME/.local/bin/env"
 fi
