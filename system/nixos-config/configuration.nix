@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixpkgs-unstable, ... }:
 
+let 
+    unstable = nixpkgs-unstable.legacyPackages.${pkgs.system};
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -85,6 +88,15 @@
     pulse.enable = true;
   };
 
+  services.ollama = {
+    enable = true;
+    package = unstable.ollama-rocm;
+    
+    # enable ROCm (AMD GPU support)
+    acceleration = "rocm";
+    rocmOverrideGfx = "10.3.0";
+  };
+
   programs.zsh.enable = true; # Enable zsh for everyone, but configure it per user (see home-manager)
 
   users.users.antonin = {
@@ -97,6 +109,8 @@
     shell = pkgs.zsh;
     packages = with pkgs; [ ];
   };
+  users.groups.video.members = [ "antonin" "ollama" ];
+  users.groups.render.members = [ "antonin" "ollama" ];
 
   fonts.packages = with pkgs; [
     source-code-pro
@@ -117,6 +131,7 @@
     curl
     gcc
     gnupg
+    unstable.ollama
     nixfmt-rfc-style # the official nix formatter
     powertop
     zip
