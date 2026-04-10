@@ -1,12 +1,12 @@
 ---
 description: Reviews code for quality and best practices
 mode: primary
-model: gemma4:26b
+model: ollama/gemma4:26b
 temperature: 0.1
-tools:
-  write: false
-  edit: false
-  bash: false
+permission:
+  write: deny
+  edit: deny 
+  bash: allow
 ---
 
 You are in code review mode. Focus on:

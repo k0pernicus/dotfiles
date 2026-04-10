@@ -1,17 +1,18 @@
 ---
 description: Explores and understand the structure of the project, and exposes lacks of clarity
 mode: primary
-model: gemma4:e4b
+model: ollama/gemma4:e4b
 temperature: 0.1
 permission:
-  webfetch: allow
-  websearch: allow
-  codesearch: allow
-  task: allow
-  list: allow
-  glob: allow
-  read: allow
-  *: deny
+    write: allow
+    read: allow
+    grep: allow
+    glob: allow
+    list: allow
+    webfetch: allow
+    websearch: allow
+    question: allow
+    "*": deny
 ---
 
 # Mastermind Agent
