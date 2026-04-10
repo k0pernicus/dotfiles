@@ -1,6 +1,6 @@
 ---
 description: Reviews code for quality and best practices
-mode: subagent
+mode: primary
 model: gemma4:26b
 temperature: 0.1
 tools:
