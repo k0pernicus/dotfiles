@@ -1,6 +1,8 @@
+#!/bin/sh
+
 ## Glitchees files
 
-p=$HOME/.config
+p="$HOME/.config"
 
 # Common
 if [ -f ${p}/.gtc_comm ]; then
