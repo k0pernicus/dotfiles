@@ -64,7 +64,7 @@
     # git
     ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gitconfig";
     # configuration
-    ".config/opencode/agents/".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_opencode/agents";
+    ".config/opencode/agent/".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_opencode/agent";
     ".config/.gtc_comm".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_comm";
     ".config/.gtc_func".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_func";
     ".config/.gtc_prog".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_prog";
