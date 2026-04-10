@@ -1,5 +1,4 @@
 #!/bin/bash
-set -euo pipefail
 
 gclone() {
     c_pwd="$(pwd)"
