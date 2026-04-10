@@ -52,7 +52,7 @@ opencode() {
         -v "$current_dir:/workspace" \
         -v "$opencode_dir:/root/.config/opencode" \
         -w /workspace \
-        ghcr.io/anomalyco/opencode
+        ghcr.io/anomalyco/opencode:1.4.3
 }
 
 openwebui() {
