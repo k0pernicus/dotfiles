@@ -8,14 +8,14 @@ export PATH="/usr/local/go/bin:$GOBIN:$PATH"
 # Swift
 export SWIFTLY_HOME_DIR="$HOME/.swiftly"
 export SWIFTLY_BIN_DIR="$SWIFTLY_HOME_DIR/bin"
-if [ ! -d $HOME/.swiftly ]; then
+if [ ! -d "$HOME/.swiftly" ]; then
     echo "Missing swiftly - run 'install_swiftly' command first!"
 else
-    . $HOME/.swiftly/env.sh
+    . "$HOME/.swiftly/env.sh"
 fi
 
 # Playdate
-if [ -d $HOME/Devel/PlaydateSDK ]; then
+if [ -d "$HOME/Devel/PlaydateSDK" ]; then
     export PLAYDATE_SDK_PATH="$HOME/Devel/PlaydateSDK"
     export PATH="$PLAYDATE_SDK_PATH/bin:$PATH"
 fi
