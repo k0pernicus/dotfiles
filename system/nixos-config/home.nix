@@ -27,6 +27,7 @@
     signal-desktop
     thunderbird
     transmission_4-qt
+    vlc
     vscodium
   ];
 
