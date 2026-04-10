@@ -49,10 +49,9 @@ opencode() {
 
     docker run -it --rm \
         --add-host=host.docker.internal:host-gateway \
-        -e OPENCODE_DIR=/data/sessions \
         -v "$current_dir:/workspace" \
         -v "$opencode_dir:/root/.config/opencode" \
-        -v "$opencode_sessions":/data/sessions \
+        -v "$opencode_sessions:/root/.local/share/opencode" \
         -w /workspace \
         ghcr.io/anomalyco/opencode:1.4.3
 }
