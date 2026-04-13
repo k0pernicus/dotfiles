@@ -82,9 +82,6 @@ in
     enable = true;
     package = unstable.ollama-rocm;
     acceleration = "rocm";
-    # open configuration
-    host = "0.0.0.0";
-    openFirewall = true;
   };
 
   programs.zsh.enable = true; # Enable zsh for everyone, but configure it per user (see home-manager)
@@ -152,8 +149,7 @@ in
   # Enable the firewall
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 11434 ];
-    # allowedTCPPorts = [ 80 443 25565 ];
+    allowedTCPPorts = [ ];
     # allowedUDPPorts = [ 25565 ];
   };
 
