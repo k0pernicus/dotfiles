@@ -32,8 +32,7 @@ in
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.initrd.luks.devices."luks-667c2261-a769-44d9-8310-cdd1e6f421cd".device =
-    "/dev/disk/by-uuid/667c2261-a769-44d9-8310-cdd1e6f421cd";
+  boot.initrd.luks.devices."luks-7a298fe2-dc1b-4bbd-a84f-f7933acdb1fb".device = "/dev/disk/by-uuid/7a298fe2-dc1b-4bbd-a84f-f7933acdb1fb";
   networking.hostName = "phobos";
 
   networking.networkmanager.enable = true;
@@ -61,15 +60,6 @@ in
       wayland.enable = true;
   };
 
-  # gnome
-  # services.displayManager.gdm.enable = true;
-  # services.desktopManager.gnome.enable = true;
-  # services.gnome = {
-  #   core-apps.enable = false;
-  #   core-developer-tools.enable = false;
-  #   games.enable = false;
-  # };
-
   services.xserver.xkb = {
     layout = "fr";
     variant = "";
@@ -91,10 +81,10 @@ in
   services.ollama = {
     enable = true;
     package = unstable.ollama-rocm;
-    
-    # enable ROCm (AMD GPU support)
     acceleration = "rocm";
-    rocmOverrideGfx = "10.3.0";
+    # open configuration
+    host = "0.0.0.0";
+    openFirewall = true;
   };
 
   programs.zsh.enable = true; # Enable zsh for everyone, but configure it per user (see home-manager)
@@ -109,8 +99,8 @@ in
     shell = pkgs.zsh;
     packages = with pkgs; [ ];
   };
-  users.groups.video.members = [ "antonin" "ollama" ];
-  users.groups.render.members = [ "antonin" "ollama" ];
+  users.groups.video.members = [ "antonin" ];
+  users.groups.render.members = [ "antonin" ];
 
   fonts.packages = with pkgs; [
     source-code-pro
@@ -131,7 +121,6 @@ in
     curl
     gcc
     gnupg
-    unstable.ollama
     nixfmt-rfc-style # the official nix formatter
     powertop
     zip
@@ -163,6 +152,7 @@ in
   # Enable the firewall
   networking.firewall = {
     enable = true;
+    allowedTCPPorts = [ 11434 ];
     # allowedTCPPorts = [ 80 443 25565 ];
     # allowedUDPPorts = [ 25565 ];
   };
