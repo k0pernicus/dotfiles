@@ -138,6 +138,7 @@ in
     enableUserService = true;
   };
   services.supergfxd.enable = true;
+  zramSwap.enable = true;
 
   # VPN settings
   services.mullvad-vpn.enable = true;
