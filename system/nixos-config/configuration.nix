@@ -151,7 +151,8 @@ in
   # Enable the firewall
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ ];
+    allowedTCPPorts = [ 53317 ]; # LocalSend
+    allowedUDPPorts = [ 53317 ]; # LocalSend
     # allowedUDPPorts = [ 25565 ];
   };
 
