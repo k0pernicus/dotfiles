@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  dotfilesPath = "${config.home.homeDirectory}/Devel/dotfiles";
+in
 {
   home.username = "antonin";
   home.homeDirectory = "/home/antonin";
@@ -73,31 +76,31 @@
   # Symlink to my development folder
   xdg.configFile = {
     "alacritty".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/config/alacritty";
+      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/config/alacritty";
     "nvim".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/config/nvim";
+      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/config/nvim";
     "zellij".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/config/zellij";
+      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/config/zellij";
   };
 
   home.file = {
     # git
     ".gitconfig".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/dot/dot_gitconfig";
+      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gitconfig";
     # configuration
     ".config/.gtc_comm".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/dot/dot_gtc_comm";
+      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_comm";
     ".config/.gtc_func".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/dot/dot_gtc_func";
+      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_func";
     ".config/.gtc_prog".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/dot/dot_gtc_prog";
+      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_prog";
     ".config/.gtc_tool".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/dot/dot_gtc_tool";
+      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_tool";
     ".zprofile".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/dot/dot_zprofile";
+      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_zprofile";
     # dev
     ".config/VSCodium/User/settings.json".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Devel/dotfiles/config/vscode/settings.json";
+      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/config/vscode/settings.json";
   };
 
   programs.home-manager.enable = true;

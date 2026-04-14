@@ -162,9 +162,6 @@ in
     enable = true;
     setSocketVariable = true;
   };
-  virtualisation.docker.daemon.settings = {
-    data-root = "$HOME/.docker/images";
-  };
 
   system.stateVersion = "25.11";
 }
