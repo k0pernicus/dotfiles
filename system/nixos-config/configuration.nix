@@ -120,8 +120,9 @@ in
     gnupg
     nixfmt-rfc-style # the official nix formatter
     powertop
-    zip
+    supergfxctl-plasmoid
     unzip
+    zip
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
