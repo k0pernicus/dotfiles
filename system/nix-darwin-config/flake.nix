@@ -35,11 +35,6 @@
       networking.applicationFirewall.allowSignedApp = true; 
       networking.computerName = "BatMac";
 
-      # Necessary for using flakes on this system.
-      nix.settings.experimental-features = "nix-command flakes";
-
-      programs.zsh.enable = true;  # default shell on macOS
-
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
 
@@ -143,10 +138,9 @@
       # Ensure Rosetta 2 is installed on Apple Silicon
       # Then enable x86-64 emulation
       system.activationScripts.extraActivation.text = ''
-        softwareupdate --install-rosetta --agree-to-license
-      '';
-      nix.extraOptions = ''
-        extra-platforms = x86_64-darwin aarch64-darwin
+        if ! arch -x86_64 /usr/bin/true 2> /dev/null; then
+          softwareupdate --install-rosetta --agree-to-license
+        fi
       '';
     };
   in
