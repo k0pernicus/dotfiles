@@ -35,6 +35,7 @@ opencode() {
     local current_dir="$(pwd)"
     local opencode_dir="$HOME/.config/opencode"
     local opencode_sessions="$HOME/.config/opencode/sessions"
+    local custom_image="opencode-with-tools:latest"
 
     # Check if the current directory path contains "/Devel/" or ends with "/Devel"
     if [[ "$current_dir" != */Devel/* ]] && [[ "$current_dir" != */Devel ]]; then
@@ -46,14 +47,22 @@ opencode() {
         echo "opencode directory ($HOME/.config/opencode) does not exist"
         return 1
     fi
+    
+    # Check if your custom tool-rich image has been built
+    if ! docker image inspect "$custom_image" >/dev/null 2>&1; then
+        echo "! Custom image '$custom_image' not found !"
+        echo "Please build it first: docker build -t $custom_image /path/to/Dockerfile/dir"
+        return 1
+    fi
 
+    # Note the updated destination paths for the volumes mapping to /home/opencode
     docker run -it --rm \
         --add-host=host.docker.internal:host-gateway \
         -v "$current_dir:/workspace" \
-        -v "$opencode_dir:/root/.config/opencode" \
-        -v "$opencode_sessions:/root/.local/share/opencode" \
+        -v "$opencode_dir:/home/opencode/.config/opencode" \
+        -v "$opencode_sessions:/home/opencode/.local/share/opencode" \
         -w /workspace \
-        ghcr.io/anomalyco/opencode:1.4.3
+        "$custom_image"
 }
 
 openwebui() {
