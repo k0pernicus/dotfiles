@@ -1,5 +1,9 @@
 { config, pkgs, dotfilesPath, user, userHome, ... }: {
   
+  imports = [
+    ./dev.nix
+  ];
+
   home.stateVersion = "26.05";
   home.homeDirectory = "${userHome}";  
 
@@ -19,6 +23,7 @@
       fd
       lua-language-server
       stylua
+      kotlin-language-server
     ];
   };
 

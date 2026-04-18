@@ -152,7 +152,6 @@
       specialArgs = { inherit user userHome dotfilesPath; };
       modules = [ 
         configuration
-        ./dev.nix
         ./brew.nix
         mac-app-util.darwinModules.default
         home-manager.darwinModules.home-manager

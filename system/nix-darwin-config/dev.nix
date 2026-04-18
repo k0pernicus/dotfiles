@@ -1,18 +1,22 @@
 { pkgs, ... }: {
 
-  environment.systemPackages = with pkgs; [
-    uv
+  home.packages = with pkgs; [
+    # Compilers and tools
+    emscripten
     go
+    kotlin
+    openjdk
+    rustup
+    uv
 
-    # Build tools often needed for Odin/C/C++
+    # Build tools often needed for C/C++
     gnumake
     cmake
     ninja
     ffmpeg
-    emscripten
 
     # LSP and Debuggers
-    lldb            # Debugger that works well with Odin on macOS
+    lldb
   ];
 
 }
