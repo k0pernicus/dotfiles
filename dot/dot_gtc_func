@@ -93,7 +93,7 @@ fi
 if [[ -n "$FLAKE_DIR" ]]; then
     update_system() {
         echo "Updating nix system for target $FLAKE_TARGET..."
-        sudo "$REBUILD_CMD" switch --flake "$FLAKE_TARGET"
+        sudo -E "$REBUILD_CMD" switch --flake "$FLAKE_TARGET"
     }
 
     update_nix() {
