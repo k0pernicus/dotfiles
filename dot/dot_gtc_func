@@ -49,7 +49,7 @@ opencode() {
     fi
     
     # Check if your custom tool-rich image has been built
-    if ! docker image inspect "$custom_image" >/dev/null 2>&1; then
+    if ! docker images -q "$custom_image" >/dev/null 2>&1; then
         echo "! Custom image '$custom_image' not found !"
         echo "Please build it first: docker build -t $custom_image /path/to/Dockerfile/dir"
         return 1
