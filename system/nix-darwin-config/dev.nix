@@ -4,8 +4,6 @@
     # Compilers and tools
     emscripten
     go
-    kotlin
-    openjdk
     rustup
     uv
 
