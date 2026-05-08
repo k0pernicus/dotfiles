@@ -7,24 +7,24 @@
   home.stateVersion = "26.05";
   home.homeDirectory = "${userHome}";  
 
-  # Packages to install
   home.packages = with pkgs; [
     git
     tree-sitter
     zellij
     irssi
+    
+    # Neovim and its dependencies
+    neovim
+    ripgrep
+    fd
+    lua-language-server
+    stylua
+    kotlin-language-server
   ];
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    extraPackages = with pkgs; [
-      ripgrep
-      fd
-      lua-language-server
-      stylua
-      kotlin-language-server
-    ];
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
   };
 
   programs.zsh = {
