@@ -98,6 +98,6 @@ if [[ -n "$FLAKE_DIR" ]]; then
 
     update_nix() {
         echo "Updating flake inputs in $FLAKE_DIR..."
-        (cd "$FLAKE_DIR" && sudo nix flake update)
+        (cd "$FLAKE_DIR" && nix flake update)
     }
 fi
