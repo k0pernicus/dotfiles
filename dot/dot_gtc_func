@@ -125,7 +125,11 @@ fi
 if [[ -n "$FLAKE_DIR" ]]; then
     update_system() {
         echo "Updating nix system for target $FLAKE_TARGET..."
-        sudo -E "$REBUILD_CMD" switch --flake "$FLAKE_TARGET"
+        if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+            sudo "$REBUILD_CMD" switch --flake "$FLAKE_TARGET"
+        elif [[ "$OSTYPE" == "darwin"* ]]; then
+            sudo -E "$REBUILD_CMD" switch --flake "$FLAKE_TARGET"
+        fi
     }
 
     update_nix() {
