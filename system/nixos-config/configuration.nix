@@ -53,12 +53,10 @@ in
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  # plasma
-  services.desktopManager.plasma6.enable = true;
-  services.displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-  };
+  # gnome
+  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.libinput.enable = true;
 
   services.xserver.xkb = {
     layout = "fr";
@@ -105,10 +103,7 @@ in
     nerd-fonts.jetbrains-mono
   ];
 
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true; # for Plasma wayland
-  };
+  programs.steam.enable = true;
   programs.gamemode.enable = true; # Automatically optimizes CPU / GPU when a game launches
 
   nixpkgs.config.allowUnfree = true;
@@ -120,7 +115,7 @@ in
     gnupg
     nixfmt-rfc-style # the official nix formatter
     powertop
-    supergfxctl-plasmoid
+
     unzip
     zip
   ];
