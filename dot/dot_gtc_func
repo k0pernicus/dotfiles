@@ -58,7 +58,7 @@ mistral_vibe() {
     docker run -it --rm \
         --add-host=host.docker.internal:host-gateway \
         -v "$current_dir:/workspace" \
-        -v "$mistral_dir:/home/vibe/.vibe/" \
+        -v "$mistral_dir:/root/.vibe/" \
         -w /workspace \
         "$custom_image"
 }
