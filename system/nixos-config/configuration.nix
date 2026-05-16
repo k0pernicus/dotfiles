@@ -28,45 +28,44 @@ in
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
+  boot.initrd.luks.devices."luks-c582ce98-d5a2-4c33-9ff5-4d8e6f1e50d4".device = "/dev/disk/by-uuid/c582ce98-d5a2-4c33-9ff5-4d8e6f1e50d4";
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.initrd.luks.devices."luks-7a298fe2-dc1b-4bbd-a84f-f7933acdb1fb".device = "/dev/disk/by-uuid/7a298fe2-dc1b-4bbd-a84f-f7933acdb1fb";
-  networking.hostName = "phobos";
-
-  networking.networkmanager.enable = true;
-  networking.networkmanager.wifi.powersave = false;
+  networking = {
+      hostName = "phobos";
+      networkmanager = {
+        enable = true;
+        wifi.powersave = false;
+      };
+  };
 
   time.timeZone = "Europe/Paris";
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "fr_FR.UTF-8";
-    LC_IDENTIFICATION = "fr_FR.UTF-8";
-    LC_MEASUREMENT = "fr_FR.UTF-8";
-    LC_MONETARY = "fr_FR.UTF-8";
-    LC_NAME = "fr_FR.UTF-8";
-    LC_NUMERIC = "fr_FR.UTF-8";
-    LC_PAPER = "fr_FR.UTF-8";
-    LC_TELEPHONE = "fr_FR.UTF-8";
-    LC_TIME = "fr_FR.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "fr_FR.UTF-8";
+      LC_IDENTIFICATION = "fr_FR.UTF-8";
+      LC_MEASUREMENT = "fr_FR.UTF-8";
+      LC_MONETARY = "fr_FR.UTF-8";
+      LC_NAME = "fr_FR.UTF-8";
+      LC_NUMERIC = "fr_FR.UTF-8";
+      LC_PAPER = "fr_FR.UTF-8";
+      LC_TELEPHONE = "fr_FR.UTF-8";
+      LC_TIME = "fr_FR.UTF-8";
+    };
   };
 
   # gnome
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.libinput.enable = true;
-
+  services.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.libinput.enable = true;
   services.xserver.xkb = {
     layout = "fr";
     variant = "";
   };
-
-  console.keyMap = "fr";
-
   services.printing.enable = true;
-
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -75,12 +74,11 @@ in
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+    
+  systemd.services.accounts-daemon.restartIfChanged = false; # do not restart accounts-daemon at each update
 
-  services.ollama = {
-    enable = true;
-    package = unstable.ollama-rocm;
-    acceleration = "rocm";
-  };
+  console.keyMap = "fr";
+
 
   programs.zsh.enable = true; # Enable zsh for everyone, but configure it per user (see home-manager)
 
@@ -115,9 +113,25 @@ in
     gnupg
     nixfmt-rfc-style # the official nix formatter
     powertop
-
     unzip
     zip
+
+    gnome-tweaks
+    papirus-icon-theme
+  ];
+
+  environment.gnome.excludePackages = with pkgs; [
+    epiphany
+    geary
+    gnome-contacts
+    gnome-maps
+    gnome-music
+    gnome-photos
+    gnome-tour
+    gnome-weather
+    showtime
+    totem
+    yelp
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -125,6 +139,12 @@ in
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+  };
+
+  # Enable GSConnect and automatically open the necessary firewall ports
+  programs.kdeconnect = {
+    enable = true;
+    package = pkgs.gnomeExtensions.gsconnect;
   };
 
   # Specific laptop services

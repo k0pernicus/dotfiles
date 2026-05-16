@@ -15,20 +15,20 @@
   boot.kernelParams = [ "amd_pstate=guided" ];
 
   fileSystems."/" =
-    { device = "/dev/mapper/luks-80ba2f13-f109-48d9-b023-76949435e6ef";
+    { device = "/dev/mapper/luks-fca2066f-0439-4f0b-aa15-caee936022dc";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."luks-80ba2f13-f109-48d9-b023-76949435e6ef".device = "/dev/disk/by-uuid/80ba2f13-f109-48d9-b023-76949435e6ef";
+  boot.initrd.luks.devices."luks-fca2066f-0439-4f0b-aa15-caee936022dc".device = "/dev/disk/by-uuid/fca2066f-0439-4f0b-aa15-caee936022dc";
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/5032-D813";
+    { device = "/dev/disk/by-uuid/E867-0185";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
   swapDevices =
-    [ { device = "/dev/mapper/luks-7a298fe2-dc1b-4bbd-a84f-f7933acdb1fb"; }
+    [ { device = "/dev/mapper/luks-c582ce98-d5a2-4c33-9ff5-4d8e6f1e50d4"; }
     ];
 
   hardware.graphics = {

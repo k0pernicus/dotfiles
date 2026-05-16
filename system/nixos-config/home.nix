@@ -20,9 +20,12 @@ in
     go_1_25
     rustup
 
+    # gnome
+    gnome-browser-connector
+
     # else
-    anytype
     bitwarden-desktop
+    brave
     discord
     firefox
     localsend
@@ -31,7 +34,7 @@ in
     thunderbird
     transmission_4-qt
     vlc
-    vscodium
+    zed-editor
   ];
 
   programs.neovim = {
