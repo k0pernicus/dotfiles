@@ -6,7 +6,7 @@ program = "zellij"
 args = ["attach", "-c", "base"]
 
 [window]
-dimensions = { columns = 180, lines = 64 }
+dimensions = { columns = 140, lines = 48 }
 padding = { x = 5, y = 5}
 decorations = "Full"
 opacity = 0.90
