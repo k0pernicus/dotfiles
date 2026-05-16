@@ -1,8 +1,9 @@
 [env]
 TERM = "xterm-256color"
 
-[terminal]
-shell = "zsh"
+[terminal.shell]
+program = "zellij"
+args = ["attach", "-c", "base"]
 
 [window]
 dimensions = { columns = 180, lines = 64 }
