@@ -111,6 +111,7 @@ in
     curl
     gcc
     gnupg
+    gnumake
     nixfmt-rfc-style # the official nix formatter
     powertop
     unzip
@@ -157,6 +158,9 @@ in
 
   # VPN settings
   services.mullvad-vpn.enable = true;
+
+  # Flatpak
+  services.flatpak.enable = true;
 
   # Security settings
   # Enable app sandboxing

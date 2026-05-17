@@ -13,15 +13,14 @@ in
     # (dev) tools
     alacritty
     git
+    jq
     tree-sitter
     zellij
 
     # dev
     go_1_25
     rustup
-
-    # gnome
-    gnome-browser-connector
+    opam
 
     # else
     bitwarden-desktop
@@ -34,7 +33,7 @@ in
     thunderbird
     transmission_4-qt
     vlc
-    zed-editor
+    vscodium
   ];
 
   programs.neovim = {
