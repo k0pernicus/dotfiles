@@ -24,3 +24,8 @@ fi
 if [ -d "$HOME/.local/bin" ]; then 
     source "$HOME/.local/bin/env"
 fi
+
+# OCaml
+if [ -d "$HOME/.opam" ]; then
+    eval "$(opam env)"
+fi
