@@ -12,6 +12,7 @@
     tree-sitter
     zellij
     irssi
+    htop
     
     # Neovim and its dependencies
     neovim
