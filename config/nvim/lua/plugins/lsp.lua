@@ -33,6 +33,16 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
+			-- Configure clangd to only output actual errors to stderr (silencing info/debug spam)
+			vim.lsp.config("clangd", {
+				cmd = { "clangd", "--log=error" },
+			})
+
+			-- Configure sourcekit to use xcrun to locate sourcekit-lsp on macOS
+			vim.lsp.config("sourcekit", {
+				cmd = { "xcrun", "sourcekit-lsp" },
+			})
+
 			-- Configure lua_ls settings
 			vim.lsp.config("lua_ls", {
 				settings = {
@@ -59,12 +69,14 @@ return {
 				},
 			})
 
-			-- Enable the language servers (using the new Neovim 0.11 API)
-			vim.lsp.enable("clangd")
-			vim.lsp.enable("gopls")
-			vim.lsp.enable("lua_ls")
-			vim.lsp.enable("nixd")
-			vim.lsp.enable("rust_analyzer")
+            -- Enable the language servers (using the new Neovim 0.11 API)
+            vim.lsp.enable("clangd")
+            vim.lsp.enable("gopls")
+            vim.lsp.enable("lua_ls")
+            vim.lsp.enable("nixd")
+            vim.lsp.enable("ols")
+            vim.lsp.enable("rust_analyzer")
+            vim.lsp.enable("sourcekit")
 
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				callback = function()

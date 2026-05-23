@@ -57,6 +57,7 @@ return {
         dap.configurations.c = config
         dap.configurations.cpp = config
         dap.configurations.rust = config
+        dap.configurations.swift = config
 
         -- This function runs every time a debug session starts
         -- dap.listeners.after.event_initialized["auto_output"] = function()
