@@ -13,6 +13,9 @@
     ninja
     ffmpeg
 
+    # dev
+    podman
+
     # LSP and Debuggers
     lldb
   ];

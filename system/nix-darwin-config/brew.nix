@@ -12,7 +12,6 @@
       "anytype"
       "crossover"
       "discord"
-      "docker-desktop"
       "firefox"
       "mullvad-vpn"
       "netnewswire"
