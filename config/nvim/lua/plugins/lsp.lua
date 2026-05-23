@@ -33,13 +33,24 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			vim.lsp.enable("clangd")
-			vim.lsp.enable("gopls")
-			vim.lsp.enable("lua_ls")
-			vim.lsp.enable("nixd")
-			vim.lsp.enable("ols")
-			vim.lsp.enable("rust_analyzer")
+			-- Configure lua_ls settings
+			vim.lsp.config("lua_ls", {
+				settings = {
+					Lua = {
+						runtime = { version = "LuaJIT" },
+						diagnostics = {
+							globals = { "vim" },
+						},
+						workspace = {
+							library = vim.api.nvim_get_runtime_file("", true),
+							checkThirdParty = false,
+						},
+						telemetry = { enable = false },
+					},
+				},
+			})
 
+			-- Configure nixd settings
 			vim.lsp.config("nixd", {
 				settings = {
 					nixd = {
@@ -47,6 +58,13 @@ return {
 					},
 				},
 			})
+
+			-- Enable the language servers (using the new Neovim 0.11 API)
+			vim.lsp.enable("clangd")
+			vim.lsp.enable("gopls")
+			vim.lsp.enable("lua_ls")
+			vim.lsp.enable("nixd")
+			vim.lsp.enable("rust_analyzer")
 
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				callback = function()
@@ -57,7 +75,7 @@ return {
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
 					local client = vim.lsp.get_client_by_id(args.data.client_id)
-					if client.server_capabilities.completionProvider then
+					if client and client.server_capabilities.completionProvider then
 						-- This enables <Ctrl-x><Ctrl-o> for completion
 						vim.bo[args.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 					end
