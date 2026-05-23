@@ -1,5 +1,5 @@
 # Start from the exact Alpine-based OpenCode image
-FROM ghcr.io/anomalyco/opencode:1.14.41
+FROM ghcr.io/anomalyco/opencode:1.14.48
 
 # Switch to root temporarily to install packages and create the user
 USER root
