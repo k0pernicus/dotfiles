@@ -1,10 +1,6 @@
 [env]
 TERM = "xterm-256color"
 
-[terminal.shell]
-program = "zellij"
-args = ["attach", "-c", "base"]
-
 [window]
 dimensions = { columns = 140, lines = 48 }
 padding = { x = 5, y = 5}
