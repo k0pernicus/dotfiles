@@ -21,6 +21,3 @@ source $ZSH/oh-my-zsh.sh
 
 # Everything else should be in custom files, sourced by
 source $HOME/.zprofile
-
-# Only start zellij in alacritty
-[ "$TERM" != alacritty ] || eval "$(zellij setup --generate-auto-start zsh)"
