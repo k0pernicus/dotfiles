@@ -69,13 +69,13 @@ return {
 				},
 			})
 
-            -- Enable the language servers (using the new Neovim 0.11 API)
-            vim.lsp.enable("clangd")
-            vim.lsp.enable("gopls")
-            vim.lsp.enable("lua_ls")
-            vim.lsp.enable("nixd")
-            vim.lsp.enable("rust_analyzer")
-            vim.lsp.enable("sourcekit")
+			-- Enable the language servers (using the new Neovim 0.11 API)
+			vim.lsp.enable("clangd")
+			vim.lsp.enable("gopls")
+			vim.lsp.enable("lua_ls")
+			vim.lsp.enable("nixd")
+			vim.lsp.enable("rust_analyzer")
+			vim.lsp.enable("sourcekit")
 
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				callback = function()
