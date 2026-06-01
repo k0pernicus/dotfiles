@@ -6,6 +6,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
+    ./plymouth.nix
   ];
 
   # Collect and remove old generations automatically every week
