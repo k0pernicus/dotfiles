@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixpkgs-pinned, nixpkgs-unstable, ... }:
 
 let
   dotfilesPath = "${config.home.homeDirectory}/Devel/dotfiles";
+  unstable = nixpkgs-unstable.legacyPackages.${pkgs.system};
+  pinnedPkgs = nixpkgs-pinned.legacyPackages.${pkgs.system};
 in
 {
   home.username = "antonin";
@@ -10,30 +12,27 @@ in
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
-    # (dev) tools
-    alacritty
-    git
+    # stable tools
     jq
     tree-sitter
     zellij
-
-    # dev
     go_1_25
     rustup
     opam
-
-    # else
-    bitwarden-desktop
     brave
     discord
-    firefox
-    localsend
-    mullvad-vpn
-    signal-desktop
-    thunderbird
     transmission_4-qt
     vlc
-    vscodium
+    
+    pinnedPkgs.bitwarden-desktop
+    unstable.firefox
+    unstable.localsend
+    unstable.mullvad-vpn
+    unstable.signal-desktop
+    unstable.thunderbird
+    unstable.alacritty
+    unstable.git
+    unstable.vscodium
   ];
 
   programs.neovim = {
