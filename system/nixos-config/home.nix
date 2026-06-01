@@ -16,18 +16,18 @@ in
     jq
     tree-sitter
     zellij
-    go_1_25
+    go_1_26
     rustup
-    opam
     brave
     discord
-    transmission_4-qt
+    transmission_4-gtk
     vlc
+    mullvad-vpn
     
     pinnedPkgs.bitwarden-desktop
+    
     unstable.firefox
     unstable.localsend
-    unstable.mullvad-vpn
     unstable.signal-desktop
     unstable.thunderbird
     unstable.alacritty
