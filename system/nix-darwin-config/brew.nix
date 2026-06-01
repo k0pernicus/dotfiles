@@ -20,7 +20,6 @@
       "transmission"
       "vscodium"
       "vlc"
-      "zed"
     ];
     
     # Mac App Store apps
