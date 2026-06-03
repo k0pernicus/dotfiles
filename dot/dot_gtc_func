@@ -119,7 +119,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     FLAKE_TARGET="$FLAKE_DIR/#phobos"
     REBUILD_CMD="nixos-rebuild"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    FLAKE_DIR="$HOME/System/nix-darwin-config"
+    FLAKE_DIR="$HOME/Devel/dotfiles/system/nix-darwin-config"
     FLAKE_TARGET="$FLAKE_DIR"
     REBUILD_CMD="darwin-rebuild"
 fi
