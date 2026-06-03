@@ -27,6 +27,7 @@
         wget
         gnupg
         nixd
+        nixfmt
       ];
 
       networking.applicationFirewall.enable = true;
@@ -34,6 +35,8 @@
       networking.applicationFirewall.allowSigned = true;
       networking.applicationFirewall.allowSignedApp = true; 
       networking.computerName = "BatMac";
+      networking.hostName = "BatMac";
+      networking.localHostName = "BatMac";
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;

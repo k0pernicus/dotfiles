@@ -14,8 +14,7 @@
     irssi
     htop
     
-    # Neovim and its dependencies
-    neovim
+    # Neovim dependencies
     ripgrep
     fd
     lua-language-server
@@ -23,9 +22,14 @@
     kotlin-language-server
   ];
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    # Prevent Home Manager from generating an init.lua since you provide your own
+    # dotfiles mapping the entire `.config/nvim` directory
+    sideloadInitLua = true;
   };
 
   programs.zsh = {
@@ -42,19 +46,17 @@
 
     # Custom aliases
     shellAliases = {
-      nixswitch = "darwin-rebuild switch --flake ~/System/nix-darwin-config";
+      nixswitch = "darwin-rebuild switch --flake ${dotfilesPath}/system/nix-darwin-config#BatMac";
       nixclean = "nix-collect-garbage -d";
-      v = "nvim";
-      vim = "nvim";
     };
 
     initContent = ''
-      if [ -f "$HOME/.zprofile" ]; then
-        source "$HOME/.zprofile"
+      if [ -f "$HOME/.zprofile_local" ]; then
+        source "$HOME/.zprofile_local"
       fi
     '';
   };
-  
+
   # Symlink to my development folder
   xdg.configFile = {
     "alacritty".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/config/alacritty";
@@ -69,7 +71,7 @@
     ".gnupg/".source = config.lib.file.mkOutOfStoreSymlink "${userHome}/System/gnupgkeys";
     # git
     ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gitconfig";
-    ".zprofile".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_zprofile";
+    ".zprofile_local".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_zprofile";
     # configuration
     # ".config/opencode/agent/".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_opencode/agent";
     ".config/.gtc_comm".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_comm";
