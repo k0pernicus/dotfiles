@@ -20,6 +20,9 @@ if [ -d "$HOME/Devel/PlaydateSDK" ]; then
     export PATH="$PLAYDATE_SDK_PATH/bin:$PATH"
 fi
 
+# Podman as docker
+alias docker=podman
+
 # Python
 if [ -d "$HOME/.local/bin" ]; then 
     source "$HOME/.local/bin/env"
