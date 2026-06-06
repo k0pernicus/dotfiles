@@ -15,6 +15,7 @@
 
     # dev
     podman
+    lazygit
 
     # LSP and Debuggers
     lldb
