@@ -27,26 +27,31 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 -- vim.g.maplocalleader = "\\"
 
-vim.keymap.set("n", "bl", ":buffers<CR>")
-vim.keymap.set("n", "bn", ":bnext<CR>")
-vim.keymap.set("n", "bp", ":bprev<CR>")
-vim.keymap.set("n", "bd", ":bdelete<CR>")
+-- Buffer management (b = buffer)
+vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "<leader>bp", ":bprev<CR>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { desc = "Delete buffer" })
+vim.keymap.set("n", "<leader>bl", ":buffers<CR>", { desc = "List buffers" })
+vim.keymap.set("n", "<leader>bN", ":enew<CR>", { desc = "New buffer" })
 
-vim.keymap.set("n", "tn", ":tabnext<CR>")
-vim.keymap.set("n", "tp", ":tabprevious<CR>")
-vim.keymap.set("n", "tc", ":tabclose<CR>")
-vim.keymap.set("n", "tl", ":tabs<CR>")
-vim.keymap.set("n", "tN", ":tabnew<CR>")
+-- Tab management (t = tab)
+vim.keymap.set("n", "<leader>tn", ":tabnext<CR>", { desc = "Next tab" })
+vim.keymap.set("n", "<leader>tp", ":tabprev<CR>", { desc = "Previous tab" })
+vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Close tab" })
+vim.keymap.set("n", "<leader>tl", ":tabs<CR>", { desc = "List tabs" })
+vim.keymap.set("n", "<leader>tN", ":tabnew<CR>", { desc = "New tab" })
 
-vim.keymap.set("n", "<C-S-Left>", "<C-w>h", { remap = true, desc = "Move to left split" })
-vim.keymap.set("n", "<C-S-Down>", "<C-w>j", { remap = true, desc = "Move to bottom split" })
-vim.keymap.set("n", "<C-S-Up>", "<C-w>k", { remap = true, desc = "Move to top split" })
-vim.keymap.set("n", "<C-S-Right>", "<C-w>l", { remap = true, desc = "Move to right split" })
+-- Window navigation (w = window)
+vim.keymap.set("n", "<leader>w<Left>", "<C-w>h", { remap = true, desc = "Move to left split" })
+vim.keymap.set("n", "<leader>w<Down>", "<C-w>j", { remap = true, desc = "Move to bottom split" })
+vim.keymap.set("n", "<leader>w<Up>", "<C-w>k", { remap = true, desc = "Move to top split" })
+vim.keymap.set("n", "<leader>w<Right>", "<C-w>l", { remap = true, desc = "Move to right split" })
 
-vim.keymap.set("n", "<M-Up>", ":resize -3<CR>")
-vim.keymap.set("n", "<M-Down>", ":resize +3<CR>")
-vim.keymap.set("n", "<M-S-Up>", ":vertical resize -3<CR>")
-vim.keymap.set("n", "<M-S-Down>", ":vertical resize +3<CR>")
+-- Window resizing (w = window)
+vim.keymap.set("n", "<leader>w+", ":resize +3<CR>", { desc = "Increase window height" })
+vim.keymap.set("n", "<leader>w-", ":resize -3<CR>", { desc = "Decrease window height" })
+vim.keymap.set("n", "<leader>w>", ":vertical resize +3<CR>", { desc = "Increase window width" })
+vim.keymap.set("n", "<leader>w<", ":vertical resize -3<CR>", { desc = "Decrease window width" })
 
 vim.opt.encoding = "utf-8"
 vim.g.have_nerd_font = true -- Tells plugins you have a Nerd Font installed

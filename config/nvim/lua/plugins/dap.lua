@@ -123,10 +123,11 @@ return {
             }
         }
 
-        vim.keymap.set('n', '<F5>', dap.continue)
-        vim.keymap.set('n', '<F10>', dap.step_over)
-        vim.keymap.set('n', '<F11>', dap.step_into)
-        vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint)
+        -- Debug navigation (d = debug)
+        vim.keymap.set('n', '<leader>dc', dap.continue, { desc = "Debug: Continue" })
+        vim.keymap.set('n', '<leader>do', dap.step_over, { desc = "Debug: Step over" })
+        vim.keymap.set('n', '<leader>di', dap.step_into, { desc = "Debug: Step into" })
+        vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, { desc = "Debug: Toggle breakpoint" })
 
         -- Forcefully stop the debugger and the program being debugged
         vim.keymap.set('n', '<leader>dq', function()
@@ -134,6 +135,7 @@ return {
             require('dap').close()
             print("Debugger Terminated")
         end, { desc = "Debug: Stop/Terminate" })
+        vim.keymap.set('n', '<leader>dr', function() require('dap.repl').open() end, { desc = "Debug: Open REPL" })
 
         dap.configurations.swift = {
             make_auto_launch_config("${workspaceFolder}/.build/debug", "Swift"),
