@@ -5,6 +5,7 @@
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
     onActivation.upgrade = true;
+    onActivation.extraFlags = [ "--force-cleanup" ];
 
     # GUIs
     casks = [
