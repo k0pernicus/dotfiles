@@ -27,16 +27,22 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 -- vim.g.maplocalleader = "\\"
 
-vim.keymap.set("n", "bb", ":bnext<CR>")
-vim.keymap.set("n", "bB", ":bprev<CR>")
+vim.keymap.set("n", "bl", ":buffers<CR>")
+vim.keymap.set("n", "bn", ":bnext<CR>")
+vim.keymap.set("n", "bp", ":bprev<CR>")
 vim.keymap.set("n", "bd", ":bdelete<CR>")
---vim.keymap.set('n', '<C-S-Left>', ':bprev<CR>')
---vim.keymap.set('n', '<C-S-Right>', ':bnext<CR>')
--- Using lowercase h, j, k, l is standard practice
+
+vim.keymap.set("n", "tn", ":tabnext<CR>")
+vim.keymap.set("n", "tp", ":tabprevious<CR>")
+vim.keymap.set("n", "tc", ":tabclose<CR>")
+vim.keymap.set("n", "tl", ":tabs<CR>")
+vim.keymap.set("n", "tN", ":tabnew<CR>")
+
 vim.keymap.set("n", "<C-S-Left>", "<C-w>h", { remap = true, desc = "Move to left split" })
 vim.keymap.set("n", "<C-S-Down>", "<C-w>j", { remap = true, desc = "Move to bottom split" })
 vim.keymap.set("n", "<C-S-Up>", "<C-w>k", { remap = true, desc = "Move to top split" })
 vim.keymap.set("n", "<C-S-Right>", "<C-w>l", { remap = true, desc = "Move to right split" })
+
 vim.keymap.set("n", "<M-Up>", ":resize -3<CR>")
 vim.keymap.set("n", "<M-Down>", ":resize +3<CR>")
 vim.keymap.set("n", "<M-S-Up>", ":vertical resize -3<CR>")
