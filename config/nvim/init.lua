@@ -53,6 +53,18 @@ vim.keymap.set("n", "<leader>w-", ":resize -3<CR>", { desc = "Decrease window he
 vim.keymap.set("n", "<leader>w>", ":vertical resize +3<CR>", { desc = "Increase window width" })
 vim.keymap.set("n", "<leader>w<", ":vertical resize -3<CR>", { desc = "Decrease window width" })
 
+-- Window splitting (w = window)
+vim.keymap.set("n", "<leader>ws", "<C-w>s", { desc = "Split below (horizontal)" })
+vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Split right (vertical)" })
+vim.keymap.set("n", "<leader>wc", "<C-w>c", { desc = "Close split" })
+
+-- Terminal in splits (w = window)
+vim.keymap.set("n", "<leader>wt", ":term<CR>", { desc = "Terminal (horizontal)" })
+vim.keymap.set("n", "<leader>wT", ":vert term<CR>", { desc = "Terminal (vertical)" })
+
+-- Exit terminal mode with Esc
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
 vim.opt.encoding = "utf-8"
 vim.g.have_nerd_font = true -- Tells plugins you have a Nerd Font installed
 
