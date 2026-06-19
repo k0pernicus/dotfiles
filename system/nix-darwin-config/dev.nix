@@ -4,6 +4,7 @@
     # Compilers and tools
     emscripten
     go
+    opam
     rustup
     uv
 
