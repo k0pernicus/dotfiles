@@ -152,7 +152,6 @@ in
   # Specific laptop services
   services.asusd = {
     enable = true;
-    enableUserService = true;
   };
   services.supergfxd.enable = true;
   zramSwap.enable = true;
@@ -183,5 +182,5 @@ in
     setSocketVariable = true;
   };
 
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 }

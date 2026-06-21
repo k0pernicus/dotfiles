@@ -9,7 +9,7 @@ in
   home.username = "antonin";
   home.homeDirectory = "/home/antonin";
 
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 
   home.packages = with pkgs; [
     # stable tools
@@ -34,16 +34,15 @@ in
     unstable.git
     unstable.vscodium
   ];
-
+    
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-    extraPackages = with pkgs; [
-      ripgrep
-      fd
-      lua-language-server
-      stylua
-    ];
+    viAlias = true;
+    vimAlias = true;
+    # Prevent Home Manager from generating an init.lua since you provide your own
+    # dotfiles mapping the entire `.config/nvim` directory
+    sideloadInitLua = true;
   };
 
   programs.zsh = {
