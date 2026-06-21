@@ -22,7 +22,7 @@ in
 {
   # All the actual settings go here
   boot.plymouth = {
-    enable = true;
+    enable = false;
     themePackages = [ hackers-plymouth ];
     theme = "crashoverride"; 
   };

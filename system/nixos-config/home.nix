@@ -23,6 +23,7 @@ in
     transmission_4-gtk
     vlc
     mullvad-vpn
+    ripgrep
     
     pinnedPkgs.bitwarden-desktop
     
