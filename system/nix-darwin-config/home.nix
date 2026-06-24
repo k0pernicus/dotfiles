@@ -1,11 +1,19 @@
-{ config, pkgs, dotfilesPath, user, userHome, ... }: {
-  
+{
+  config,
+  pkgs,
+  dotfilesPath,
+  user,
+  userHome,
+  ...
+}:
+{
+
   imports = [
     ./dev.nix
   ];
 
   home.stateVersion = "26.05";
-  home.homeDirectory = "${userHome}";  
+  home.homeDirectory = "${userHome}";
 
   home.packages = with pkgs; [
     git
@@ -13,7 +21,7 @@
     zellij
     irssi
     htop
-    
+
     # Neovim dependencies
     ripgrep
     fd
@@ -40,7 +48,10 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "docker"];
+      plugins = [
+        "git"
+        "docker"
+      ];
       theme = "xiong-chiamiov-plus";
     };
 
@@ -79,6 +90,7 @@
     ".config/.gtc_prog".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_prog";
     ".config/.gtc_tool".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_tool";
     # vscode
-    "Library/Application Support/VSCodium/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/config/vscode/settings.json";
+    "Library/Application Support/VSCodium/User/settings.json".source =
+      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/config/vscode/settings.json";
   };
 }
