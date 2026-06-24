@@ -15,6 +15,7 @@ return {
 					"lua_ls",
 					"rust_analyzer",
 					"ocamllsp",
+					"zls",
 				},
 			})
 		end,
