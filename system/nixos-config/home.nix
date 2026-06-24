@@ -1,4 +1,10 @@
-{ config, pkgs, nixpkgs-pinned, nixpkgs-unstable, ... }:
+{
+  config,
+  pkgs,
+  nixpkgs-pinned,
+  nixpkgs-unstable,
+  ...
+}:
 
 let
   dotfilesPath = "${config.home.homeDirectory}/Devel/dotfiles";
@@ -24,9 +30,9 @@ in
     vlc
     mullvad-vpn
     ripgrep
-    
+
     pinnedPkgs.bitwarden-desktop
-    
+
     unstable.firefox
     unstable.localsend
     unstable.signal-desktop
@@ -35,7 +41,7 @@ in
     unstable.git
     unstable.vscodium
   ];
-    
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -76,29 +82,20 @@ in
 
   # Symlink to my development folder
   xdg.configFile = {
-    "alacritty".source =
-      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/config/alacritty";
-    "nvim".source =
-      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/config/nvim";
-    "zellij".source =
-      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/config/zellij";
+    "alacritty".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/config/alacritty";
+    "nvim".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/config/nvim";
+    "zellij".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/config/zellij";
   };
 
   home.file = {
     # git
-    ".gitconfig".source =
-      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gitconfig";
+    ".gitconfig".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gitconfig";
     # configuration
-    ".config/.gtc_comm".source =
-      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_comm";
-    ".config/.gtc_func".source =
-      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_func";
-    ".config/.gtc_prog".source =
-      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_prog";
-    ".config/.gtc_tool".source =
-      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_tool";
-    ".zprofile".source =
-      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_zprofile";
+    ".config/.gtc_comm".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_comm";
+    ".config/.gtc_func".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_func";
+    ".config/.gtc_prog".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_prog";
+    ".config/.gtc_tool".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_gtc_tool";
+    ".zprofile".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/dot/dot_zprofile";
     # dev
     ".config/VSCodium/User/settings.json".source =
       config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/config/vscode/settings.json";

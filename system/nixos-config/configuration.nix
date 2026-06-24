@@ -1,7 +1,12 @@
-{ config, pkgs, nixpkgs-unstable, ... }:
+{
+  config,
+  pkgs,
+  nixpkgs-unstable,
+  ...
+}:
 
-let 
-    unstable = nixpkgs-unstable.legacyPackages.${pkgs.system};
+let
+  unstable = nixpkgs-unstable.legacyPackages.${pkgs.system};
 in
 {
   imports = [
@@ -29,17 +34,18 @@ in
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
-  boot.initrd.luks.devices."luks-c582ce98-d5a2-4c33-9ff5-4d8e6f1e50d4".device = "/dev/disk/by-uuid/c582ce98-d5a2-4c33-9ff5-4d8e6f1e50d4";
+  boot.initrd.luks.devices."luks-c582ce98-d5a2-4c33-9ff5-4d8e6f1e50d4".device =
+    "/dev/disk/by-uuid/c582ce98-d5a2-4c33-9ff5-4d8e6f1e50d4";
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking = {
-      hostName = "phobos";
-      networkmanager = {
-        enable = true;
-        wifi.powersave = false;
-      };
+    hostName = "phobos";
+    networkmanager = {
+      enable = true;
+      wifi.powersave = false;
+    };
   };
 
   time.timeZone = "Europe/Paris";
@@ -75,11 +81,10 @@ in
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-    
+
   systemd.services.accounts-daemon.restartIfChanged = false; # do not restart accounts-daemon at each update
 
   console.keyMap = "fr";
-
 
   programs.zsh.enable = true; # Enable zsh for everyone, but configure it per user (see home-manager)
 

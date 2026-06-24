@@ -24,6 +24,6 @@ in
   boot.plymouth = {
     enable = false;
     themePackages = [ hackers-plymouth ];
-    theme = "crashoverride"; 
+    theme = "crashoverride";
   };
 }
