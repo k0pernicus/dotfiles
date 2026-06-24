@@ -14,7 +14,6 @@ return {
 					"gopls",
 					"lua_ls",
 					"rust_analyzer",
-					"ocamllsp",
 					"zls",
 				},
 			})
@@ -76,7 +75,6 @@ return {
 			vim.lsp.enable("gopls")
 			vim.lsp.enable("lua_ls")
 			vim.lsp.enable("nixd")
-			vim.lsp.enable("ocamllsp")
 			vim.lsp.enable("rust_analyzer")
 			vim.lsp.enable("sourcekit")
 

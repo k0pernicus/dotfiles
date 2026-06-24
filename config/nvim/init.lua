@@ -76,15 +76,4 @@ vim.diagnostic.config({
 	severity_sort = true,
 })
 
--- OCaml-specific settings (2 spaces indentation)
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "ocaml",
-	callback = function()
-		vim.bo.expandtab = true
-		vim.bo.tabstop = 2
-		vim.bo.softtabstop = 2
-		vim.bo.shiftwidth = 2
-	end,
-})
-
 require("config.lazy")

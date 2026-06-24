@@ -3,7 +3,7 @@ return {
 	build = ":TSUpdate",
 	config = function()
 		require("nvim-treesitter").setup({
-			ensure_installed = { "c", "cpp", "lua", "markdown", "swift", "vimdoc", "query", "ocaml" },
+			ensure_installed = { "c", "cpp", "lua", "markdown", "swift", "vimdoc", "query" },
 			highlight = { enable = true },
 			indent = { enable = true },
 			incremental_selection = {

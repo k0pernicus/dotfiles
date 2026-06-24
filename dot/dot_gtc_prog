@@ -14,11 +14,6 @@ else
     . "$HOME/.swiftly/env.sh"
 fi
 
-# OCaml / OPAM
-if command -v opam >/dev/null 2>&1; then
-    eval $(opam env)
-fi
-
 # Playdate
 if [ -d "$HOME/Devel/PlaydateSDK" ]; then
     export PLAYDATE_SDK_PATH="$HOME/Devel/PlaydateSDK"
