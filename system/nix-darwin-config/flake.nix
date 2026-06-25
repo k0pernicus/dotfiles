@@ -114,6 +114,11 @@
           dock.mineffect = "genie";
           dock.show-recents = false;
           dock.tilesize = 48;
+          dock.persistent-apps = [
+            "/Applications/Firefox.app"
+            "/Applications/Thunderbird.app"
+            "/Applications/Signal.app"
+          ];
 
           finder.AppleShowAllExtensions = true;
           finder.NewWindowTarget = "Home";
