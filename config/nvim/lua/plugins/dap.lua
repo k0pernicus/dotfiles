@@ -190,11 +190,6 @@ return {
 			make_arg_launch_config("${workspaceFolder}/target/debug", "Rust", "codelldb"),
 		}
 
-		dap.configurations.zig = {
-			make_auto_launch_config("${workspaceFolder}/zig-out/bin", "Zig", "codelldb"),
-			make_arg_launch_config("${workspaceFolder}/zig-out/bin", "Zig", "codelldb"),
-		}
-
 		dap.configurations.c = fallback_config
 		dap.configurations.cpp = fallback_config
 
@@ -227,7 +222,7 @@ return {
 		-- Load launch.json if it exists in the workspace
 		require("dap.ext.vscode").load_launchjs(
 			nil,
-			{ codelldb = { "c", "cpp", "rust", "swift", "zig" }, python = { "python" } }
+			{ codelldb = { "c", "cpp", "rust", "swift" }, python = { "python" } }
 		)
 	end,
 }
