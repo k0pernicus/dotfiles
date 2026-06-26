@@ -6,8 +6,6 @@
     go
     rustup
     uv
-    zig
-    zls
 
     # Build tools often needed for C/C++
     gnumake

@@ -8,8 +8,6 @@
     home-manager.url = "github:nix-community/home-manager/master";
     mac-app-util.url = "github:hraban/mac-app-util";
 
-    zig.url = "github:mitchellh/zig-overlay";
-
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -21,14 +19,12 @@
       nixpkgs,
       home-manager,
       mac-app-util,
-      zig,
     }:
     let
       user = "antonin";
       userHome = "/Users/${user}";
       dotfilesPath = "${userHome}/Devel/dotfiles";
       configuration = { pkgs, ... }: {
-        nixpkgs.overlays = [ zig.overlays.default ];
         # Usage of determinate - avoid conflicts with self-nix of nix-darwin
         nix.enable = false;
 
@@ -115,9 +111,27 @@
           dock.show-recents = false;
           dock.tilesize = 48;
           dock.persistent-apps = [
+            "/System/Applications/Calendar.app/"
+            {
+              spacer = {
+                small = true;
+              };
+            }
+            "/System/Applications/Messages.app"
+            "/Applications/Signal.app"
+            {
+              spacer = {
+                small = true;
+              };
+            }
             "/Applications/Firefox.app"
             "/Applications/Thunderbird.app"
-            "/Applications/Signal.app"
+            {
+              spacer = {
+                small = true;
+              };
+            }
+            "/Applications/Alacritty.app"
           ];
 
           finder.AppleShowAllExtensions = true;
@@ -182,7 +196,6 @@
               mac-app-util.homeManagerModules.default
             ];
             home-manager.users.${user} = import ./home.nix;
-            nixpkgs.overlays = [ zig.overlays.default ];
           }
         ];
       };
