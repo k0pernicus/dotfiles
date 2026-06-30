@@ -115,6 +115,7 @@ in
   environment.systemPackages = with pkgs; [
     asusctl
     curl
+    distrobox
     gcc
     gnupg
     gnumake
@@ -180,11 +181,11 @@ in
     # allowedUDPPorts = [ 25565 ];
   };
 
-  # Enable virtualization for docker (rootless only)
-  # Store the images in the current user home
-  virtualisation.docker.rootless = {
+  virtualisation.podman = {
     enable = true;
-    setSocketVariable = true;
+    # This makes typing 'docker' under the hood use podman
+    dockerCompat = true; 
+    defaultNetwork.settings.dns_enabled = true;
   };
 
   system.stateVersion = "26.05";
